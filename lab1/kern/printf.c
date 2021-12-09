@@ -10,6 +10,7 @@ static void
 putch(int ch, int *cnt)
 {
 	cputchar(ch);
+    //这里会有bug！
 	*cnt++;
 }
 

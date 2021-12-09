@@ -19,6 +19,7 @@ test_backtrace(int x)
 	cprintf("leaving test_backtrace %d\n", x);
 }
 
+//入口
 void
 i386_init(void)
 {
