@@ -10,6 +10,7 @@
 #include <kern/kclock.h>
 
 
+//入口
 void
 i386_init(void)
 {

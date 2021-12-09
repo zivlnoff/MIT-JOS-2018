@@ -60,7 +60,7 @@
 #define	CMDBYTE		(KC8_TRANS|KC8_CPU|KC8_MENABLE|KC8_KENABLE)
 
 /* keyboard commands */
-#define	KBC_RESET	0xFF	/* reset the keyboard */
+#define	KBC_RESET	0xFF	 /* reset the keyboard */
 #define	KBC_RESEND	0xFE	/* request the keyboard resend the last byte */
 #define	KBC_SETDEFAULT	0xF6	/* resets keyboard to its power-on defaults */
 #define	KBC_DISABLE	0xF5	/* as per KBC_SETDEFAULT, but also disable key scanning */
