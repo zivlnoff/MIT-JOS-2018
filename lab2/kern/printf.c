@@ -36,3 +36,4 @@ cprintf(const char *fmt, ...)
 	return cnt;
 }
 
+//0xf010efe4 ap地址固定？？？ 不是吧应该
