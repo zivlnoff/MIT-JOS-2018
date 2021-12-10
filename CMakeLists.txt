@@ -1,0 +1,84 @@
+cmake_minimum_required(VERSION 3.21)
+project(JOS_2018_Fall)
+
+set(CMAKE_CXX_STANDARD 14)
+
+include_directories(.)
+include_directories(lab1)
+include_directories(lab1/boot)
+include_directories(lab1/conf)
+include_directories(lab1/fs)
+include_directories(lab1/inc)
+include_directories(lab1/kern)
+include_directories(lab1/lib)
+include_directories(lab1/obj)
+include_directories(lab1/obj/boot)
+include_directories(lab1/obj/kern)
+include_directories(lab1/user)
+
+add_executable(JOS_2018_Fall
+        lab1/boot/boot.S
+        lab1/boot/main.c
+        lab1/boot/Makefrag
+        lab1/boot/sign.pl
+        lab1/conf/env.mk
+        lab1/conf/lab.mk
+        lab1/fs/test.c
+        lab1/fs/testshell.key
+        lab1/inc/assert.h
+        lab1/inc/COPYRIGHT
+        lab1/inc/elf.h
+        lab1/inc/error.h
+        lab1/inc/kbdreg.h
+        lab1/inc/memlayout.h
+        lab1/inc/mmu.h
+        lab1/inc/stab.h
+        lab1/inc/stdarg.h
+        lab1/inc/stdio.h
+        lab1/inc/string.h
+        lab1/inc/types.h
+        lab1/inc/x86.h
+        lab1/kern/console.c
+        lab1/kern/console.h
+        lab1/kern/COPYRIGHT
+        lab1/kern/entry.S
+        lab1/kern/entrypgdir.c
+        lab1/kern/init.c
+        lab1/kern/kdebug.c
+        lab1/kern/kdebug.h
+        lab1/kern/kernel.ld
+        lab1/kern/Makefrag
+        lab1/kern/monitor.c
+        lab1/kern/monitor.h
+        lab1/kern/printf.c
+        lab1/lib/printfmt.c
+        lab1/lib/readline.c
+        lab1/lib/string.c
+        lab1/obj/boot/boot
+        lab1/obj/boot/boot.asm
+        lab1/obj/boot/boot.o
+        lab1/obj/boot/boot.out
+        lab1/obj/boot/main.o
+        lab1/obj/kern/console.o
+        lab1/obj/kern/entry.o
+        lab1/obj/kern/entrypgdir.o
+        lab1/obj/kern/init.o
+        lab1/obj/kern/kdebug.o
+        lab1/obj/kern/kernel
+        lab1/obj/kern/kernel.asm
+        lab1/obj/kern/kernel.img
+        lab1/obj/kern/kernel.sym
+        lab1/obj/kern/monitor.o
+        lab1/obj/kern/printf.o
+        lab1/obj/kern/printfmt.d
+        lab1/obj/kern/printfmt.o
+        lab1/obj/kern/readline.o
+        lab1/obj/kern/string.o
+        lab1/user/sendpage.c
+        lab1/CODING
+        lab1/GNUmakefile
+        lab1/grade-lab1
+        lab1/gradelib.py
+        lab1/mergedep.pl
+        lab1/yyTest
+        lab1/yyTest.c)

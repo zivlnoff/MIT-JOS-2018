@@ -309,9 +309,9 @@ $(OBJDIR)/.deps: $(foreach dir, $(OBJDIRS), $(wildcard $(OBJDIR)/$(dir)/*.d))
 -include $(OBJDIR)/.deps
 
 always:
-	@:
 
-.PHONY: all always \
+
+.PHONY: \
 	handin git-handin tarball tarball-pref clean realclean distclean grade handin-prep handin-check
 
 .PHONY: yyTest
