@@ -11,17 +11,18 @@
 void
 test_backtrace(int x) {
     cprintf("entering test_backtrace %d\n", x);
-    if (x > 0)
-        test_backtrace(x - 1);
-    else
+    if (x <= 0)
         mon_backtrace(0, 0, 0);
+    else {
+        test_backtrace(x - 1);
+    }
     cprintf("leaving test_backtrace %d\n", x);
 }
 
 //入口
 void
 i386_init(void) {
-    extern char edata[], end[];
+//    extern char edata[], end[];
 
     // Before doing anything else, complete the ELF loading process.
     // Clear the uninitialized global data (BSS) section of our program.

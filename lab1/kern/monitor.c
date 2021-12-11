@@ -56,11 +56,17 @@ mon_kerninfo(int argc, char **argv, struct Trapframe *tf) {
 
 int
 mon_backtrace(int argc, char **argv, struct Trapframe *tf) {
-    uint32_t *ebp = (uint32_t *) read_ebp();
+    uintptr_t ebp = read_ebp();
     while (ebp) {
-        cprintf("ebp:%x    return address:%x    args:%x %x %x %x %x \n", ebp, *(ebp + 1), *(ebp + 2), *(ebp + 3),
-                *(ebp + 4), *(ebp + 5));
-        ebp = (uint32_t *) *ebp;
+        uintptr_t eip = *(uintptr_t *) (ebp + 0x4);
+        cprintf("  ebp %08x  eip %08x  args %08x %08x %08x %08x %08x\n", ebp, eip, *(uintptr_t *) (ebp + 0x8),
+                *(uintptr_t *) (ebp + 0xc),
+                *(uintptr_t *) (ebp + 0x10), *(uintptr_t *) (ebp + 0x14));
+        struct Eipdebuginfo eipDebugInfo;
+        debuginfo_eip(eip, &eipDebugInfo);
+        cprintf("\t %s:%d:  %.*s+%d\n", eipDebugInfo.eip_file, eipDebugInfo.eip_line, eipDebugInfo.eip_fn_namelen, eipDebugInfo.eip_fn_name,
+                eip - eipDebugInfo.eip_fn_addr);
+        ebp = *(uintptr_t *) ebp;
     }
     return 1;
 }
