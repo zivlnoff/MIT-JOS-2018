@@ -73,6 +73,7 @@ start32:
 	movl    mpentry_kstack, %esp
 	movl    $0x0, %ebp       # nuke frame pointer
 
+	//??? not understand temporary
 	# Call mp_main().  (Exercise for the reader: why the indirect call?)
 	movl    $mp_main, %eax
 	call    *%eax

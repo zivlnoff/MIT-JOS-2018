@@ -17,16 +17,6 @@
 					<DistClean command="/usr/bin/make -j4 -f &quot;/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="edit_cache">
-				<Option working_dir="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/cmake-build-debug"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
 			<Target title="rebuild_cache">
 				<Option working_dir="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/cmake-build-debug"/>
 				<Option type="4"/>
@@ -37,60 +27,32 @@
 					<DistClean command="/usr/bin/make -j4 -f &quot;/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="JOS_3018_Fall">
-				<Option output="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/cmake-build-debug/JOS_3018_Fall" prefix_auto="0" extension_auto="0"/>
+			<Target title="edit_cache">
 				<Option working_dir="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/."/>
-					<Add directory="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3"/>
-					<Add directory="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/boot"/>
-					<Add directory="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/conf"/>
-					<Add directory="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/fs"/>
-					<Add directory="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/inc"/>
-					<Add directory="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/kern"/>
-					<Add directory="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/lib"/>
-					<Add directory="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/obj"/>
-					<Add directory="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/obj/boot"/>
-					<Add directory="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/obj/kern"/>
-					<Add directory="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/user"/>
-					<Add directory="/usr/include/c++/7"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
-					<Add directory="/usr/include/c++/7/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
-				</Compiler>
+				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/cmake-build-debug/Makefile&quot;  VERBOSE=1 JOS_3018_Fall"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
 					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j4 -f &quot;/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j4 -f &quot;/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="JOS_3018_Fall/fast">
-				<Option output="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/cmake-build-debug/JOS_3018_Fall" prefix_auto="0" extension_auto="0"/>
+			<Target title="JOS_4018_Fall">
+				<Option output="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/cmake-build-debug/JOS_4018_Fall" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/."/>
-					<Add directory="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3"/>
-					<Add directory="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/boot"/>
-					<Add directory="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/conf"/>
-					<Add directory="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/fs"/>
-					<Add directory="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/inc"/>
-					<Add directory="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/kern"/>
-					<Add directory="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/lib"/>
-					<Add directory="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/obj"/>
-					<Add directory="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/obj/boot"/>
-					<Add directory="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/obj/kern"/>
-					<Add directory="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/user"/>
+					<Add directory="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4"/>
+					<Add directory="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/boot"/>
+					<Add directory="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/conf"/>
+					<Add directory="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/fs"/>
+					<Add directory="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/inc"/>
+					<Add directory="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/kern"/>
+					<Add directory="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/lib"/>
+					<Add directory="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/user"/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
 					<Add directory="/usr/include/c++/7/backward"/>
@@ -101,318 +63,371 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/cmake-build-debug/Makefile&quot;  VERBOSE=1 JOS_3018_Fall/fast"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/cmake-build-debug/Makefile&quot;  VERBOSE=1 JOS_4018_Fall"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="JOS_4018_Fall/fast">
+				<Option output="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/cmake-build-debug/JOS_4018_Fall" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/."/>
+					<Add directory="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4"/>
+					<Add directory="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/boot"/>
+					<Add directory="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/conf"/>
+					<Add directory="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/fs"/>
+					<Add directory="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/inc"/>
+					<Add directory="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/kern"/>
+					<Add directory="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/lib"/>
+					<Add directory="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/user"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/cmake-build-debug/Makefile&quot;  VERBOSE=1 JOS_4018_Fall/fast"/>
 					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j4 -f &quot;/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j4 -f &quot;/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/CODING">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/CODING">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/GNUmakefile">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/GNUmakefile">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/boot/Makefrag">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/boot/Makefrag">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/boot/boot.S">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/boot/boot.S">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/boot/main.c">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/boot/main.c">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/boot/sign.pl">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/boot/sign.pl">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/conf/env.mk">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/conf/env.mk">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/conf/lab.mk">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/conf/lab.mk">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/fs/test.c">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/fs/test.c">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/fs/testshell.key">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/fs/testshell.key">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/grade-lab3">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/grade-lab4">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/gradelib.py">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/gradelib.py">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/inc/COPYRIGHT">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/inc/COPYRIGHT">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/inc/assert.h">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/inc/assert.h">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/inc/elf.h">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/inc/elf.h">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/inc/env.h">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/inc/env.h">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/inc/error.h">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/inc/error.h">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/inc/kbdreg.h">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/inc/kbdreg.h">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/inc/lib.h">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/inc/lib.h">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/inc/memlayout.h">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/inc/memlayout.h">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/inc/mmu.h">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/inc/mmu.h">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/inc/stab.h">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/inc/stab.h">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/inc/stdarg.h">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/inc/stdarg.h">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/inc/stdio.h">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/inc/stdio.h">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/inc/string.h">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/inc/string.h">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/inc/syscall.h">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/inc/syscall.h">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/inc/trap.h">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/inc/trap.h">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/inc/types.h">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/inc/types.h">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/inc/x86.h">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/inc/x86.h">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/kern/COPYRIGHT">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/kern/COPYRIGHT">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/kern/Makefrag">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/kern/Makefrag">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/kern/console.c">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/kern/console.c">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/kern/console.h">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/kern/console.h">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/kern/entry.S">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/kern/cpu.h">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/kern/entrypgdir.c">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/kern/entry.S">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/kern/env.c">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/kern/entrypgdir.c">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/kern/env.h">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/kern/env.c">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/kern/init.c">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/kern/env.h">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/kern/kclock.c">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/kern/init.c">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/kern/kclock.h">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/kern/kclock.c">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/kern/kdebug.c">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/kern/kclock.h">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/kern/kdebug.h">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/kern/kdebug.c">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/kern/kernel.ld">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/kern/kdebug.h">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/kern/monitor.c">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/kern/kernel.ld">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/kern/monitor.h">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/kern/monitor.c">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/kern/pmap.c">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/kern/monitor.h">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/kern/pmap.h">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/kern/mpconfig.c">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/kern/printf.c">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/kern/mpentry.S">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/kern/syscall.c">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/kern/picirq.c">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/kern/syscall.h">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/kern/picirq.h">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/kern/trap.c">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/kern/pmap.c">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/kern/trap.h">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/kern/pmap.h">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/kern/trapentry.S">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/kern/printf.c">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/lib/Makefrag">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/kern/sched.c">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/lib/console.c">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/kern/sched.h">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/lib/entry.S">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/kern/spinlock.c">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/lib/exit.c">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/kern/spinlock.h">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/lib/libmain.c">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/kern/syscall.c">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/lib/panic.c">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/kern/syscall.h">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/lib/printf.c">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/kern/trap.c">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/lib/printfmt.c">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/kern/trap.h">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/lib/readline.c">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/kern/trapentry.S">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/lib/string.c">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/lib/Makefrag">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/lib/syscall.c">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/lib/console.c">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/mergedep.pl">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/lib/entry.S">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/obj/boot/boot">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/lib/exit.c">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/obj/boot/boot.asm">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/lib/fork.c">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/obj/boot/boot.o">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/lib/ipc.c">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/obj/boot/boot.out">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/lib/libmain.c">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/obj/boot/main.o">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/lib/panic.c">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/obj/kern/console.o">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/lib/pfentry.S">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/obj/kern/entry.o">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/lib/pgfault.c">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/obj/kern/entrypgdir.o">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/lib/printf.c">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/obj/kern/init.o">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/lib/printfmt.c">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/obj/kern/kdebug.o">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/lib/readline.c">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/obj/kern/kernel">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/lib/string.c">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/obj/kern/kernel.asm">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/lib/syscall.c">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/obj/kern/kernel.img">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/mergedep.pl">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/obj/kern/kernel.sym">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/user/Makefrag">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/obj/kern/monitor.o">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/user/badsegment.c">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/obj/kern/printf.o">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/user/breakpoint.c">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/obj/kern/printfmt.o">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/user/buggyhello.c">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/obj/kern/readline.o">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/user/buggyhello2.c">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/obj/kern/string.o">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/user/divzero.c">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/user/Makefrag">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/user/dumbfork.c">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/user/badsegment.c">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/user/evilhello.c">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/user/breakpoint.c">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/user/fairness.c">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/user/buggyhello.c">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/user/faultalloc.c">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/user/buggyhello2.c">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/user/faultallocbad.c">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/user/divzero.c">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/user/faultdie.c">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/user/evilhello.c">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/user/faultevilhandler.c">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/user/faultread.c">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/user/faultnostack.c">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/user/faultreadkernel.c">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/user/faultread.c">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/user/faultwrite.c">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/user/faultreadkernel.c">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/user/faultwritekernel.c">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/user/faultwrite.c">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/user/hello.c">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/user/faultwritekernel.c">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/user/sendpage.c">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/user/forktree.c">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/user/softint.c">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/user/hello.c">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/user/testbss.c">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/user/idle.c">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/user/user.ld">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/user/pingpong.c">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/yyTest">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/user/pingpongs.c">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
-		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab3/yyTest.c">
-			<Option target="JOS_3018_Fall"/>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/user/primes.c">
+			<Option target="JOS_4018_Fall"/>
+		</Unit>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/user/sendpage.c">
+			<Option target="JOS_4018_Fall"/>
+		</Unit>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/user/softint.c">
+			<Option target="JOS_4018_Fall"/>
+		</Unit>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/user/spin.c">
+			<Option target="JOS_4018_Fall"/>
+		</Unit>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/user/stresssched.c">
+			<Option target="JOS_4018_Fall"/>
+		</Unit>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/user/testbss.c">
+			<Option target="JOS_4018_Fall"/>
+		</Unit>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/user/user.ld">
+			<Option target="JOS_4018_Fall"/>
+		</Unit>
+		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/lab4/user/yield.c">
+			<Option target="JOS_4018_Fall"/>
 		</Unit>
 		<Unit filename="/home/colvtzzi/Desktop/6.828/JOS-2018-Fall/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>

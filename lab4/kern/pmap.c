@@ -65,6 +65,8 @@ i386_detect_memory(void) {
 // Set up memory mappings above UTOP.
 // --------------------------------------------------------------
 
+static void mem_init_mp(void);
+
 static void boot_map_region(pde_t *pgdir, uintptr_t va, size_t size, physaddr_t pa, int perm);
 
 static void check_page_free_list(bool only_low_memory);
@@ -249,6 +251,9 @@ mem_init(void) {
     cprintf("\n************* Now map all of physical memory at KERNBASE. **************\n");
     boot_map_region(kern_pgdir, KERNBASE, 0xFFFFFFFF - KERNBASE + 1, 0, PTE_W | PTE_P);//这权限有必要？？
 
+    // Initialize the SMP-related parts of the memory map
+    mem_init_mp();
+
     // Check that the initial page directory has been set up correctly.
     cprintf("\n************* Now check that the initial page directory has been set up correctly **************\n");
     check_kern_pgdir();
@@ -275,6 +280,37 @@ mem_init(void) {
     // Some more checks, only possible after kern_pgdir is installed.
     cprintf("\n************* Now check page_insert, page_remove, &c, with an installed kern_pgdir **************\n");
     check_page_installed_pgdir();
+}
+
+// Modify mappings in kern_pgdir to support SMP
+//   - Map the per-CPU stacks in the region [KSTACKTOP-PTSIZE, KSTACKTOP)
+//
+static void
+mem_init_mp(void) {
+    // Map per-CPU stacks starting at KSTACKTOP, for up to 'NCPU' CPUs.
+    //
+    // For CPU i, use the physical memory that 'percpu_kstacks[i]' refers
+    // to as its kernel stack. CPU i's kernel stack grows down from virtual
+    // address kstacktop_i = KSTACKTOP - i * (KSTKSIZE + KSTKGAP), and is
+    // divided into two pieces, just like the single stack you set up in
+    // mem_init:
+    //     * [kstacktop_i - KSTKSIZE, kstacktop_i)
+    //          -- backed by physical memory
+    //     * [kstacktop_i - (KSTKSIZE + KSTKGAP), kstacktop_i - KSTKSIZE)
+    //          -- not backed; so if the kernel overflows its stack,
+    //             it will fault rather than overwrite another CPU's stack.
+    //             Known as a "guard page".
+    //     Permissions: kernel RW, user NONE
+    //
+    // LAB 4: Your code here:
+
+    cprintf("Map per-CPU stacks starting at KSTACKTOP, for up to 'NCPU' CPUs.\n");
+    for (int i = 0; i < NCPU; i++) {
+        cprintf("cpu%d stack start at:0x%x(vaddr)\t0x%x(paddr)\n", i, KSTACKTOP - i * (KSTKSIZE + KSTKGAP) - KSTKSIZE,
+                PADDR(percpu_kstacks[i]));
+        boot_map_region(kern_pgdir, KSTACKTOP - i * (KSTKSIZE + KSTKGAP) - KSTKSIZE, KSTKSIZE, PADDR(percpu_kstacks[i]),
+                        PTE_W);
+    }
 }
 
 // --------------------------------------------------------------
@@ -320,6 +356,10 @@ page_init(void) {
 
     size_t i;
     for (i = baseMemFreeStart / PGSIZE; i < baseMemFreeEnd / PGSIZE; i++) {
+        if (i == MPENTRY_PADDR / PGSIZE) {
+            cprintf("avoid adding the page at MPENTRY_PADDR: 0x%x\n", i * PGSIZE);
+            continue;;
+        }
         pages[i].pp_ref = 0;
         pages[i].pp_link = page_free_list;
         page_free_list = &pages[i];
@@ -491,7 +531,7 @@ boot_map_region(pde_t *pgdir, uintptr_t va, size_t size, physaddr_t pa, int perm
     size_t offset;
     for (offset = 0; offset < size; offset += PGSIZE) {
         pte_t *pte = pgdir_walk(pgdir, (void *) va + offset, 1);
-        *pte = (pa + offset) | perm;
+        *pte = (pa + offset) | perm | PTE_P;
     }
 }
 
@@ -625,6 +665,52 @@ tlb_invalidate(pde_t *pgdir, void *va) {
     invlpg(va);
 }
 
+//
+// Reserve size bytes in the MMIO region and map [pa,pa+size) at this
+// location.  Return the base of the reserved region.  size does *not*
+// have to be multiple of PGSIZE.
+//
+void *
+mmio_map_region(physaddr_t pa, size_t size) {
+    // Where to start the next region.  Initially, this is the
+    // beginning of the MMIO region.  Because this is static, its
+    // value will be preserved between calls to mmio_map_region
+    // (just like nextfree in boot_alloc).
+    static uintptr_t base = MMIOBASE;
+
+    // Reserve size bytes of virtual memory starting at base and
+    // map physical pages [pa,pa+size) to virtual addresses
+    // [base,base+size).  Since this is device memory and not
+    // regular DRAM, you'll have to tell the CPU that it isn't
+    // safe to cache access to this memory.  Luckily, the page
+    // tables provide bits for this purpose; simply create the
+    // mapping with PTE_PCD|PTE_PWT (cache-disable and
+    // write-through) in addition to PTE_W.  (If you're interested
+    // in more details on this, see section 10.5 of IA32 volume
+    // 3A.)
+    //
+
+    if (base + size > MMIOLIM) {
+        panic("this reservation overflow MMIOLIM");
+    }
+
+    boot_map_region(kern_pgdir, base, size, pa, PTE_PCD | PTE_PWT | PTE_W);
+
+    void *ret = (void *) base;
+    base = ROUNDUP(base + size, PGSIZE);
+
+    // Be sure to round size up to a multiple of PGSIZE and to
+    // handle if this reservation would overflow MMIOLIM (it's
+    // okay to simply panic if this happens).
+    //
+    // Hint: The staff solution uses boot_map_region.
+    //
+    // Your code here:
+    return ret;
+
+    panic("mmio_map_region not implemented");
+}
+
 static uintptr_t user_mem_check_addr;
 
 //
@@ -655,14 +741,14 @@ user_mem_check(struct Env *env, const void *va, size_t len, int perm) {
 
     uintptr_t begin = ROUNDDOWN((uint32_t) va, PGSIZE), end = ROUNDUP((uint32_t) va + len, PGSIZE);
     if (end > ULIM) {
-        user_mem_check_addr =(uintptr_t) va;
+        user_mem_check_addr = (uintptr_t) va;
         return -E_FAULT;
     }
 
     for (int i = begin; i < end; i += PGSIZE) {
         pte_t *pte = pgdir_walk(env->env_pgdir, (const void *) i, 0);
         if ((pte == NULL) || ((*pte & (perm | PTE_P)) != (perm | PTE_P))) {
-            user_mem_check_addr = i < (uint32_t)va? (uint32_t)va:i;
+            user_mem_check_addr = i < (uint32_t) va ? (uint32_t) va : i;
             return -E_FAULT;
         }
     }
@@ -746,6 +832,8 @@ check_page_free_list(bool only_low_memory) {
         assert(page2pa(pp) != EXTPHYSMEM - PGSIZE);
         assert(page2pa(pp) != EXTPHYSMEM);
         assert(page2pa(pp) < EXTPHYSMEM || (char *) page2kva(pp) >= first_free_page);
+        // (new test for lab 4)
+        assert(page2pa(pp) != MPENTRY_PADDR);
 
         if (page2pa(pp) < EXTPHYSMEM)
             ++nfree_basemem;
@@ -856,8 +944,6 @@ check_kern_pgdir(void) {
 
     // check pages array
     n = ROUNDUP(npages * sizeof(struct PageInfo), PGSIZE);
-    cprintf("check_va2pa(pgdir, UPAGES + 0):0x%x\tPADDR(pages) + 0:0x%x\n", check_va2pa(pgdir, UPAGES + 0),
-            PADDR(pages) + 0);
     for (i = 0; i < n; i += PGSIZE)
         assert(check_va2pa(pgdir, UPAGES + i) == PADDR(pages) + i);
 
@@ -871,9 +957,15 @@ check_kern_pgdir(void) {
         assert(check_va2pa(pgdir, KERNBASE + i) == i);
 
     // check kernel stack
-    for (i = 0; i < KSTKSIZE; i += PGSIZE)
-        assert(check_va2pa(pgdir, KSTACKTOP - KSTKSIZE + i) == PADDR(bootstack) + i);
-    assert(check_va2pa(pgdir, KSTACKTOP - PTSIZE) == ~0);
+    // (updated in lab 4 to check per-CPU kernel stacks)
+    for (n = 0; n < NCPU; n++) {
+        uint32_t base = KSTACKTOP - (KSTKSIZE + KSTKGAP) * (n + 1);
+        for (i = 0; i < KSTKSIZE; i += PGSIZE)
+            assert(check_va2pa(pgdir, base + KSTKGAP + i)
+                   == PADDR(percpu_kstacks[n]) + i);
+        for (i = 0; i < KSTKGAP; i += PGSIZE)
+            assert(check_va2pa(pgdir, base + i) == ~0);
+    }
 
     // check PDE permissions
     for (i = 0; i < NPDENTRIES; i++) {
@@ -882,7 +974,9 @@ check_kern_pgdir(void) {
             case PDX(KSTACKTOP - 1):
             case PDX(UPAGES):
             case PDX(UENVS):
-                assert(pgdir[i] & PTE_P);
+            case PDX(MMIOBASE):
+                //why need? mask it now.
+//                assert(pgdir[i] & PTE_P);
                 break;
             default:
                 if (i >= PDX(KERNBASE)) {

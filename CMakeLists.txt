@@ -4,122 +4,149 @@ project(JOS_2018_Fall)
 set(CMAKE_CXX_STANDARD 14)
 
 include_directories(.)
-include_directories(lab3)
-include_directories(lab3/boot)
-include_directories(lab3/conf)
-include_directories(lab3/fs)
-include_directories(lab3/inc)
-include_directories(lab3/kern)
-include_directories(lab3/lib)
-include_directories(lab3/obj)
-include_directories(lab3/obj/boot)
-include_directories(lab3/obj/kern)
-include_directories(lab3/user)
+include_directories(lab4)
+include_directories(lab4/boot)
+include_directories(lab4/conf)
+include_directories(lab4/fs)
+include_directories(lab4/inc)
+include_directories(lab4/kern)
+include_directories(lab4/lib)
+#include_directories(lab4/obj)
+#include_directories(lab4/obj/boot)
+#include_directories(lab4/obj/kern)
+include_directories(lab4/user)
 
-add_executable(JOS_3018_Fall
-        lab3/boot/boot.S
-        lab3/boot/main.c
-        lab3/boot/Makefrag
-        lab3/boot/sign.pl
-        lab3/conf/env.mk
-        lab3/conf/lab.mk
-        lab3/fs/test.c
-        lab3/fs/testshell.key
-        lab3/inc/assert.h
-        lab3/inc/COPYRIGHT
-        lab3/inc/elf.h
-        lab3/inc/env.h
-        lab3/inc/error.h
-        lab3/inc/kbdreg.h
-        lab3/inc/lib.h
-        lab3/inc/memlayout.h
-        lab3/inc/mmu.h
-        lab3/inc/stab.h
-        lab3/inc/stdarg.h
-        lab3/inc/stdio.h
-        lab3/inc/string.h
-        lab3/inc/syscall.h
-        lab3/inc/trap.h
-        lab3/inc/types.h
-        lab3/inc/x86.h
-        lab3/kern/console.c
-        lab3/kern/console.h
-        lab3/kern/COPYRIGHT
-        lab3/kern/entry.S
-        lab3/kern/entrypgdir.c
-        lab3/kern/env.c
-        lab3/kern/env.h
-        lab3/kern/init.c
-        lab3/kern/kclock.c
-        lab3/kern/kclock.h
-        lab3/kern/kdebug.c
-        lab3/kern/kdebug.h
-        lab3/kern/kernel.ld
-        lab3/kern/Makefrag
-        lab3/kern/monitor.c
-        lab3/kern/monitor.h
-        lab3/kern/pmap.c
-        lab3/kern/pmap.h
-        lab3/kern/printf.c
-        lab3/kern/syscall.c
-        lab3/kern/syscall.h
-        lab3/kern/trap.c
-        lab3/kern/trap.h
-        lab3/kern/trapentry.S
-        lab3/lib/console.c
-        lab3/lib/entry.S
-        lab3/lib/exit.c
-        lab3/lib/libmain.c
-        lab3/lib/Makefrag
-        lab3/lib/panic.c
-        lab3/lib/printf.c
-        lab3/lib/printfmt.c
-        lab3/lib/readline.c
-        lab3/lib/string.c
-        lab3/lib/syscall.c
-        lab3/obj/boot/boot
-        lab3/obj/boot/boot.asm
-        lab3/obj/boot/boot.o
-        lab3/obj/boot/boot.out
-        lab3/obj/boot/main.o
-        lab3/obj/kern/console.o
-        lab3/obj/kern/entry.o
-        lab3/obj/kern/entrypgdir.o
-        lab3/obj/kern/init.o
-        lab3/obj/kern/kdebug.o
-        lab3/obj/kern/kernel
-        lab3/obj/kern/kernel.asm
-        lab3/obj/kern/kernel.img
-        lab3/obj/kern/kernel.sym
-        lab3/obj/kern/monitor.o
-        lab3/obj/kern/printf.o
-        lab3/obj/kern/printfmt.o
-        lab3/obj/kern/readline.o
-        lab3/obj/kern/string.o
-        lab3/user/sendpage.c
-        lab3/user/badsegment.c
-        lab3/user/breakpoint.c
-        lab3/user/buggyhello.c
-        lab3/user/buggyhello2.c
-        lab3/user/divzero.c
-        lab3/user/evilhello.c
-        lab3/user/faultread.c
-        lab3/user/faultreadkernel.c
-        lab3/user/faultwrite.c
-        lab3/user/faultwritekernel.c
-        lab3/user/hello.c
-        lab3/user/Makefrag
-        lab3/user/sendpage.c
-        lab3/user/softint.c
-        lab3/user/testbss.c
-        lab3/user/user.ld
-        lab3/CODING
-        lab3/GNUmakefile
-        lab3/grade-lab3
-        lab3/gradelib.py
-        lab3/mergedep.pl
-        lab3/yyTest
-        lab3/yyTest.c)
+add_executable(JOS_4018_Fall
+        lab4/boot/boot.S
+        lab4/boot/main.c
+        lab4/boot/Makefrag
+        lab4/boot/sign.pl
+        lab4/conf/env.mk
+        lab4/conf/lab.mk
+        lab4/fs/test.c
+        lab4/fs/testshell.key
+        lab4/inc/assert.h
+        lab4/inc/COPYRIGHT
+        lab4/inc/elf.h
+        lab4/inc/env.h
+        lab4/inc/error.h
+        lab4/inc/kbdreg.h
+        lab4/inc/lib.h
+        lab4/inc/memlayout.h
+        lab4/inc/mmu.h
+        lab4/inc/stab.h
+        lab4/inc/stdarg.h
+        lab4/inc/stdio.h
+        lab4/inc/string.h
+        lab4/inc/syscall.h
+        lab4/inc/trap.h
+        lab4/inc/types.h
+        lab4/inc/x86.h
+        lab4/kern/console.c
+        lab4/kern/console.h
+        lab4/kern/COPYRIGHT
+        lab4/kern/cpu.h
+        lab4/kern/entry.S
+        lab4/kern/entrypgdir.c
+        lab4/kern/env.c
+        lab4/kern/env.h
+        lab4/kern/init.c
+        lab4/kern/kclock.c
+        lab4/kern/kclock.h
+        lab4/kern/kdebug.c
+        lab4/kern/kdebug.h
+        lab4/kern/kernel.ld
+        lab4/kern/Makefrag
+        lab4/kern/monitor.c
+        lab4/kern/monitor.h
+        lab4/kern/mpconfig.c
+        lab4/kern/mpentry.S
+        lab4/kern/picirq.c
+        lab4/kern/picirq.h
+        lab4/kern/pmap.c
+        lab4/kern/pmap.h
+        lab4/kern/printf.c
+        lab4/kern/sched.c
+        lab4/kern/sched.h
+        lab4/kern/spinlock.c
+        lab4/kern/spinlock.h
+        lab4/kern/syscall.c
+        lab4/kern/syscall.h
+        lab4/kern/trap.c
+        lab4/kern/trap.h
+        lab4/kern/trapentry.S
+        lab4/lib/console.c
+        lab4/lib/entry.S
+        lab4/lib/exit.c
+        lab4/lib/fork.c
+        lab4/lib/ipc.c
+        lab4/lib/libmain.c
+        lab4/lib/Makefrag
+        lab4/lib/panic.c
+        lab4/lib/pfentry.S
+        lab4/lib/pgfault.c
+        lab4/lib/printf.c
+        lab4/lib/printfmt.c
+        lab4/lib/readline.c
+        lab4/lib/string.c
+        lab4/lib/syscall.c
+        #        lab4/obj/boot/boot
+        #        lab4/obj/boot/boot.asm
+        #        lab4/obj/boot/boot.o
+        #        lab4/obj/boot/boot.out
+        #        lab4/obj/boot/main.o
+        #        lab4/obj/kern/console.o
+        #        lab4/obj/kern/entry.o
+        #        lab4/obj/kern/entrypgdir.o
+        #        lab4/obj/kern/init.o
+        #        lab4/obj/kern/kdebug.o
+        #        lab4/obj/kern/kernel
+        #        lab4/obj/kern/kernel.asm
+        #        lab4/obj/kern/kernel.img
+        #        lab4/obj/kern/kernel.sym
+        #        lab4/obj/kern/monitor.o
+        #        lab4/obj/kern/printf.o
+        #        lab4/obj/kern/printfmt.o
+        #        lab4/obj/kern/readline.o
+        #        lab4/obj/kern/string.o
+        lab4/user/badsegment.c
+        lab4/user/breakpoint.c
+        lab4/user/buggyhello.c
+        lab4/user/buggyhello2.c
+        lab4/user/divzero.c
+        lab4/user/dumbfork.c
+        lab4/user/evilhello.c
+        lab4/user/fairness.c
+        lab4/user/faultalloc.c
+        lab4/user/faultallocbad.c
+        lab4/user/faultdie.c
+        lab4/user/faultevilhandler.c
+        lab4/user/faultnostack.c
+        lab4/user/faultread.c
+        lab4/user/faultreadkernel.c
+        lab4/user/faultread.c
+        lab4/user/faultwrite.c
+        lab4/user/faultwritekernel.c
+        lab4/user/forktree.c
+        lab4/user/hello.c
+        lab4/user/idle.c
+        lab4/user/Makefrag
+        lab4/user/pingpong.c
+        lab4/user/pingpongs.c
+        lab4/user/primes.c
+        lab4/user/sendpage.c
+        lab4/user/softint.c
+        lab4/user/spin.c
+        lab4/user/stresssched.c
+        lab4/user/testbss.c
+        lab4/user/user.ld
+        lab4/user/yield.c
+        lab4/CODING
+        lab4/GNUmakefile
+        lab4/grade-lab4
+        lab4/gradelib.py
+        lab4/mergedep.pl
+        )
 
 
 # 你他妈的缓存的原因，老子搞了2小时多 你妈必死哦

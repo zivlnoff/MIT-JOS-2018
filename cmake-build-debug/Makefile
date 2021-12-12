@@ -75,17 +75,6 @@ CMAKE_BINARY_DIR = /home/colvtzzi/Desktop/6.828/JOS-2018-Fall/cmake-build-debug
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/home/colvtzzi/clion-2021.1.3/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -96,6 +85,17 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/home/colvtzzi/clion-2021.1.3/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -130,1016 +130,1583 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named JOS_3018_Fall
+# Target rules for targets named JOS_4018_Fall
 
 # Build rule for target.
-JOS_3018_Fall: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 JOS_3018_Fall
-.PHONY : JOS_3018_Fall
+JOS_4018_Fall: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 JOS_4018_Fall
+.PHONY : JOS_4018_Fall
 
 # fast build rule for target.
-JOS_3018_Fall/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/build
-.PHONY : JOS_3018_Fall/fast
+JOS_4018_Fall/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/build
+.PHONY : JOS_4018_Fall/fast
 
-lab3/boot/main.o: lab3/boot/main.c.o
+lab4/boot/main.o: lab4/boot/main.c.o
 
-.PHONY : lab3/boot/main.o
-
-# target to build an object file
-lab3/boot/main.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/boot/main.c.o
-.PHONY : lab3/boot/main.c.o
-
-lab3/boot/main.i: lab3/boot/main.c.i
-
-.PHONY : lab3/boot/main.i
-
-# target to preprocess a source file
-lab3/boot/main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/boot/main.c.i
-.PHONY : lab3/boot/main.c.i
-
-lab3/boot/main.s: lab3/boot/main.c.s
-
-.PHONY : lab3/boot/main.s
-
-# target to generate assembly for a file
-lab3/boot/main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/boot/main.c.s
-.PHONY : lab3/boot/main.c.s
-
-lab3/fs/test.o: lab3/fs/test.c.o
-
-.PHONY : lab3/fs/test.o
+.PHONY : lab4/boot/main.o
 
 # target to build an object file
-lab3/fs/test.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/fs/test.c.o
-.PHONY : lab3/fs/test.c.o
+lab4/boot/main.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/boot/main.c.o
+.PHONY : lab4/boot/main.c.o
 
-lab3/fs/test.i: lab3/fs/test.c.i
+lab4/boot/main.i: lab4/boot/main.c.i
 
-.PHONY : lab3/fs/test.i
+.PHONY : lab4/boot/main.i
 
 # target to preprocess a source file
-lab3/fs/test.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/fs/test.c.i
-.PHONY : lab3/fs/test.c.i
+lab4/boot/main.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/boot/main.c.i
+.PHONY : lab4/boot/main.c.i
 
-lab3/fs/test.s: lab3/fs/test.c.s
+lab4/boot/main.s: lab4/boot/main.c.s
 
-.PHONY : lab3/fs/test.s
+.PHONY : lab4/boot/main.s
 
 # target to generate assembly for a file
-lab3/fs/test.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/fs/test.c.s
-.PHONY : lab3/fs/test.c.s
+lab4/boot/main.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/boot/main.c.s
+.PHONY : lab4/boot/main.c.s
 
-lab3/kern/console.o: lab3/kern/console.c.o
+lab4/fs/test.o: lab4/fs/test.c.o
 
-.PHONY : lab3/kern/console.o
+.PHONY : lab4/fs/test.o
 
 # target to build an object file
-lab3/kern/console.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/kern/console.c.o
-.PHONY : lab3/kern/console.c.o
+lab4/fs/test.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/fs/test.c.o
+.PHONY : lab4/fs/test.c.o
 
-lab3/kern/console.i: lab3/kern/console.c.i
+lab4/fs/test.i: lab4/fs/test.c.i
 
-.PHONY : lab3/kern/console.i
+.PHONY : lab4/fs/test.i
 
 # target to preprocess a source file
-lab3/kern/console.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/kern/console.c.i
-.PHONY : lab3/kern/console.c.i
+lab4/fs/test.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/fs/test.c.i
+.PHONY : lab4/fs/test.c.i
 
-lab3/kern/console.s: lab3/kern/console.c.s
+lab4/fs/test.s: lab4/fs/test.c.s
 
-.PHONY : lab3/kern/console.s
+.PHONY : lab4/fs/test.s
 
 # target to generate assembly for a file
-lab3/kern/console.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/kern/console.c.s
-.PHONY : lab3/kern/console.c.s
+lab4/fs/test.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/fs/test.c.s
+.PHONY : lab4/fs/test.c.s
 
-lab3/kern/entrypgdir.o: lab3/kern/entrypgdir.c.o
+lab4/kern/console.o: lab4/kern/console.c.o
 
-.PHONY : lab3/kern/entrypgdir.o
+.PHONY : lab4/kern/console.o
 
 # target to build an object file
-lab3/kern/entrypgdir.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/kern/entrypgdir.c.o
-.PHONY : lab3/kern/entrypgdir.c.o
+lab4/kern/console.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/kern/console.c.o
+.PHONY : lab4/kern/console.c.o
 
-lab3/kern/entrypgdir.i: lab3/kern/entrypgdir.c.i
+lab4/kern/console.i: lab4/kern/console.c.i
 
-.PHONY : lab3/kern/entrypgdir.i
+.PHONY : lab4/kern/console.i
 
 # target to preprocess a source file
-lab3/kern/entrypgdir.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/kern/entrypgdir.c.i
-.PHONY : lab3/kern/entrypgdir.c.i
+lab4/kern/console.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/kern/console.c.i
+.PHONY : lab4/kern/console.c.i
 
-lab3/kern/entrypgdir.s: lab3/kern/entrypgdir.c.s
+lab4/kern/console.s: lab4/kern/console.c.s
 
-.PHONY : lab3/kern/entrypgdir.s
+.PHONY : lab4/kern/console.s
 
 # target to generate assembly for a file
-lab3/kern/entrypgdir.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/kern/entrypgdir.c.s
-.PHONY : lab3/kern/entrypgdir.c.s
+lab4/kern/console.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/kern/console.c.s
+.PHONY : lab4/kern/console.c.s
 
-lab3/kern/env.o: lab3/kern/env.c.o
+lab4/kern/entrypgdir.o: lab4/kern/entrypgdir.c.o
 
-.PHONY : lab3/kern/env.o
+.PHONY : lab4/kern/entrypgdir.o
 
 # target to build an object file
-lab3/kern/env.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/kern/env.c.o
-.PHONY : lab3/kern/env.c.o
+lab4/kern/entrypgdir.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/kern/entrypgdir.c.o
+.PHONY : lab4/kern/entrypgdir.c.o
 
-lab3/kern/env.i: lab3/kern/env.c.i
+lab4/kern/entrypgdir.i: lab4/kern/entrypgdir.c.i
 
-.PHONY : lab3/kern/env.i
+.PHONY : lab4/kern/entrypgdir.i
 
 # target to preprocess a source file
-lab3/kern/env.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/kern/env.c.i
-.PHONY : lab3/kern/env.c.i
+lab4/kern/entrypgdir.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/kern/entrypgdir.c.i
+.PHONY : lab4/kern/entrypgdir.c.i
 
-lab3/kern/env.s: lab3/kern/env.c.s
+lab4/kern/entrypgdir.s: lab4/kern/entrypgdir.c.s
 
-.PHONY : lab3/kern/env.s
+.PHONY : lab4/kern/entrypgdir.s
 
 # target to generate assembly for a file
-lab3/kern/env.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/kern/env.c.s
-.PHONY : lab3/kern/env.c.s
+lab4/kern/entrypgdir.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/kern/entrypgdir.c.s
+.PHONY : lab4/kern/entrypgdir.c.s
 
-lab3/kern/init.o: lab3/kern/init.c.o
+lab4/kern/env.o: lab4/kern/env.c.o
 
-.PHONY : lab3/kern/init.o
+.PHONY : lab4/kern/env.o
 
 # target to build an object file
-lab3/kern/init.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/kern/init.c.o
-.PHONY : lab3/kern/init.c.o
+lab4/kern/env.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/kern/env.c.o
+.PHONY : lab4/kern/env.c.o
 
-lab3/kern/init.i: lab3/kern/init.c.i
+lab4/kern/env.i: lab4/kern/env.c.i
 
-.PHONY : lab3/kern/init.i
+.PHONY : lab4/kern/env.i
 
 # target to preprocess a source file
-lab3/kern/init.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/kern/init.c.i
-.PHONY : lab3/kern/init.c.i
+lab4/kern/env.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/kern/env.c.i
+.PHONY : lab4/kern/env.c.i
 
-lab3/kern/init.s: lab3/kern/init.c.s
+lab4/kern/env.s: lab4/kern/env.c.s
 
-.PHONY : lab3/kern/init.s
+.PHONY : lab4/kern/env.s
 
 # target to generate assembly for a file
-lab3/kern/init.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/kern/init.c.s
-.PHONY : lab3/kern/init.c.s
+lab4/kern/env.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/kern/env.c.s
+.PHONY : lab4/kern/env.c.s
 
-lab3/kern/kclock.o: lab3/kern/kclock.c.o
+lab4/kern/init.o: lab4/kern/init.c.o
 
-.PHONY : lab3/kern/kclock.o
+.PHONY : lab4/kern/init.o
 
 # target to build an object file
-lab3/kern/kclock.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/kern/kclock.c.o
-.PHONY : lab3/kern/kclock.c.o
+lab4/kern/init.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/kern/init.c.o
+.PHONY : lab4/kern/init.c.o
 
-lab3/kern/kclock.i: lab3/kern/kclock.c.i
+lab4/kern/init.i: lab4/kern/init.c.i
 
-.PHONY : lab3/kern/kclock.i
+.PHONY : lab4/kern/init.i
 
 # target to preprocess a source file
-lab3/kern/kclock.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/kern/kclock.c.i
-.PHONY : lab3/kern/kclock.c.i
+lab4/kern/init.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/kern/init.c.i
+.PHONY : lab4/kern/init.c.i
 
-lab3/kern/kclock.s: lab3/kern/kclock.c.s
+lab4/kern/init.s: lab4/kern/init.c.s
 
-.PHONY : lab3/kern/kclock.s
+.PHONY : lab4/kern/init.s
 
 # target to generate assembly for a file
-lab3/kern/kclock.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/kern/kclock.c.s
-.PHONY : lab3/kern/kclock.c.s
+lab4/kern/init.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/kern/init.c.s
+.PHONY : lab4/kern/init.c.s
 
-lab3/kern/kdebug.o: lab3/kern/kdebug.c.o
+lab4/kern/kclock.o: lab4/kern/kclock.c.o
 
-.PHONY : lab3/kern/kdebug.o
+.PHONY : lab4/kern/kclock.o
 
 # target to build an object file
-lab3/kern/kdebug.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/kern/kdebug.c.o
-.PHONY : lab3/kern/kdebug.c.o
+lab4/kern/kclock.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/kern/kclock.c.o
+.PHONY : lab4/kern/kclock.c.o
 
-lab3/kern/kdebug.i: lab3/kern/kdebug.c.i
+lab4/kern/kclock.i: lab4/kern/kclock.c.i
 
-.PHONY : lab3/kern/kdebug.i
+.PHONY : lab4/kern/kclock.i
 
 # target to preprocess a source file
-lab3/kern/kdebug.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/kern/kdebug.c.i
-.PHONY : lab3/kern/kdebug.c.i
+lab4/kern/kclock.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/kern/kclock.c.i
+.PHONY : lab4/kern/kclock.c.i
 
-lab3/kern/kdebug.s: lab3/kern/kdebug.c.s
+lab4/kern/kclock.s: lab4/kern/kclock.c.s
 
-.PHONY : lab3/kern/kdebug.s
+.PHONY : lab4/kern/kclock.s
 
 # target to generate assembly for a file
-lab3/kern/kdebug.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/kern/kdebug.c.s
-.PHONY : lab3/kern/kdebug.c.s
+lab4/kern/kclock.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/kern/kclock.c.s
+.PHONY : lab4/kern/kclock.c.s
 
-lab3/kern/monitor.o: lab3/kern/monitor.c.o
+lab4/kern/kdebug.o: lab4/kern/kdebug.c.o
 
-.PHONY : lab3/kern/monitor.o
+.PHONY : lab4/kern/kdebug.o
 
 # target to build an object file
-lab3/kern/monitor.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/kern/monitor.c.o
-.PHONY : lab3/kern/monitor.c.o
+lab4/kern/kdebug.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/kern/kdebug.c.o
+.PHONY : lab4/kern/kdebug.c.o
 
-lab3/kern/monitor.i: lab3/kern/monitor.c.i
+lab4/kern/kdebug.i: lab4/kern/kdebug.c.i
 
-.PHONY : lab3/kern/monitor.i
+.PHONY : lab4/kern/kdebug.i
 
 # target to preprocess a source file
-lab3/kern/monitor.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/kern/monitor.c.i
-.PHONY : lab3/kern/monitor.c.i
+lab4/kern/kdebug.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/kern/kdebug.c.i
+.PHONY : lab4/kern/kdebug.c.i
 
-lab3/kern/monitor.s: lab3/kern/monitor.c.s
+lab4/kern/kdebug.s: lab4/kern/kdebug.c.s
 
-.PHONY : lab3/kern/monitor.s
+.PHONY : lab4/kern/kdebug.s
 
 # target to generate assembly for a file
-lab3/kern/monitor.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/kern/monitor.c.s
-.PHONY : lab3/kern/monitor.c.s
+lab4/kern/kdebug.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/kern/kdebug.c.s
+.PHONY : lab4/kern/kdebug.c.s
 
-lab3/kern/pmap.o: lab3/kern/pmap.c.o
+lab4/kern/monitor.o: lab4/kern/monitor.c.o
 
-.PHONY : lab3/kern/pmap.o
+.PHONY : lab4/kern/monitor.o
 
 # target to build an object file
-lab3/kern/pmap.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/kern/pmap.c.o
-.PHONY : lab3/kern/pmap.c.o
+lab4/kern/monitor.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/kern/monitor.c.o
+.PHONY : lab4/kern/monitor.c.o
 
-lab3/kern/pmap.i: lab3/kern/pmap.c.i
+lab4/kern/monitor.i: lab4/kern/monitor.c.i
 
-.PHONY : lab3/kern/pmap.i
+.PHONY : lab4/kern/monitor.i
 
 # target to preprocess a source file
-lab3/kern/pmap.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/kern/pmap.c.i
-.PHONY : lab3/kern/pmap.c.i
+lab4/kern/monitor.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/kern/monitor.c.i
+.PHONY : lab4/kern/monitor.c.i
 
-lab3/kern/pmap.s: lab3/kern/pmap.c.s
+lab4/kern/monitor.s: lab4/kern/monitor.c.s
 
-.PHONY : lab3/kern/pmap.s
+.PHONY : lab4/kern/monitor.s
 
 # target to generate assembly for a file
-lab3/kern/pmap.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/kern/pmap.c.s
-.PHONY : lab3/kern/pmap.c.s
+lab4/kern/monitor.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/kern/monitor.c.s
+.PHONY : lab4/kern/monitor.c.s
 
-lab3/kern/printf.o: lab3/kern/printf.c.o
+lab4/kern/mpconfig.o: lab4/kern/mpconfig.c.o
 
-.PHONY : lab3/kern/printf.o
+.PHONY : lab4/kern/mpconfig.o
 
 # target to build an object file
-lab3/kern/printf.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/kern/printf.c.o
-.PHONY : lab3/kern/printf.c.o
+lab4/kern/mpconfig.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/kern/mpconfig.c.o
+.PHONY : lab4/kern/mpconfig.c.o
 
-lab3/kern/printf.i: lab3/kern/printf.c.i
+lab4/kern/mpconfig.i: lab4/kern/mpconfig.c.i
 
-.PHONY : lab3/kern/printf.i
+.PHONY : lab4/kern/mpconfig.i
 
 # target to preprocess a source file
-lab3/kern/printf.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/kern/printf.c.i
-.PHONY : lab3/kern/printf.c.i
+lab4/kern/mpconfig.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/kern/mpconfig.c.i
+.PHONY : lab4/kern/mpconfig.c.i
 
-lab3/kern/printf.s: lab3/kern/printf.c.s
+lab4/kern/mpconfig.s: lab4/kern/mpconfig.c.s
 
-.PHONY : lab3/kern/printf.s
+.PHONY : lab4/kern/mpconfig.s
 
 # target to generate assembly for a file
-lab3/kern/printf.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/kern/printf.c.s
-.PHONY : lab3/kern/printf.c.s
+lab4/kern/mpconfig.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/kern/mpconfig.c.s
+.PHONY : lab4/kern/mpconfig.c.s
 
-lab3/kern/syscall.o: lab3/kern/syscall.c.o
+lab4/kern/picirq.o: lab4/kern/picirq.c.o
 
-.PHONY : lab3/kern/syscall.o
+.PHONY : lab4/kern/picirq.o
 
 # target to build an object file
-lab3/kern/syscall.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/kern/syscall.c.o
-.PHONY : lab3/kern/syscall.c.o
+lab4/kern/picirq.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/kern/picirq.c.o
+.PHONY : lab4/kern/picirq.c.o
 
-lab3/kern/syscall.i: lab3/kern/syscall.c.i
+lab4/kern/picirq.i: lab4/kern/picirq.c.i
 
-.PHONY : lab3/kern/syscall.i
+.PHONY : lab4/kern/picirq.i
 
 # target to preprocess a source file
-lab3/kern/syscall.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/kern/syscall.c.i
-.PHONY : lab3/kern/syscall.c.i
+lab4/kern/picirq.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/kern/picirq.c.i
+.PHONY : lab4/kern/picirq.c.i
 
-lab3/kern/syscall.s: lab3/kern/syscall.c.s
+lab4/kern/picirq.s: lab4/kern/picirq.c.s
 
-.PHONY : lab3/kern/syscall.s
+.PHONY : lab4/kern/picirq.s
 
 # target to generate assembly for a file
-lab3/kern/syscall.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/kern/syscall.c.s
-.PHONY : lab3/kern/syscall.c.s
+lab4/kern/picirq.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/kern/picirq.c.s
+.PHONY : lab4/kern/picirq.c.s
 
-lab3/kern/trap.o: lab3/kern/trap.c.o
+lab4/kern/pmap.o: lab4/kern/pmap.c.o
 
-.PHONY : lab3/kern/trap.o
+.PHONY : lab4/kern/pmap.o
 
 # target to build an object file
-lab3/kern/trap.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/kern/trap.c.o
-.PHONY : lab3/kern/trap.c.o
+lab4/kern/pmap.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/kern/pmap.c.o
+.PHONY : lab4/kern/pmap.c.o
 
-lab3/kern/trap.i: lab3/kern/trap.c.i
+lab4/kern/pmap.i: lab4/kern/pmap.c.i
 
-.PHONY : lab3/kern/trap.i
+.PHONY : lab4/kern/pmap.i
 
 # target to preprocess a source file
-lab3/kern/trap.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/kern/trap.c.i
-.PHONY : lab3/kern/trap.c.i
+lab4/kern/pmap.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/kern/pmap.c.i
+.PHONY : lab4/kern/pmap.c.i
 
-lab3/kern/trap.s: lab3/kern/trap.c.s
+lab4/kern/pmap.s: lab4/kern/pmap.c.s
 
-.PHONY : lab3/kern/trap.s
+.PHONY : lab4/kern/pmap.s
 
 # target to generate assembly for a file
-lab3/kern/trap.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/kern/trap.c.s
-.PHONY : lab3/kern/trap.c.s
+lab4/kern/pmap.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/kern/pmap.c.s
+.PHONY : lab4/kern/pmap.c.s
 
-lab3/lib/console.o: lab3/lib/console.c.o
+lab4/kern/printf.o: lab4/kern/printf.c.o
 
-.PHONY : lab3/lib/console.o
+.PHONY : lab4/kern/printf.o
 
 # target to build an object file
-lab3/lib/console.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/lib/console.c.o
-.PHONY : lab3/lib/console.c.o
+lab4/kern/printf.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/kern/printf.c.o
+.PHONY : lab4/kern/printf.c.o
 
-lab3/lib/console.i: lab3/lib/console.c.i
+lab4/kern/printf.i: lab4/kern/printf.c.i
 
-.PHONY : lab3/lib/console.i
+.PHONY : lab4/kern/printf.i
 
 # target to preprocess a source file
-lab3/lib/console.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/lib/console.c.i
-.PHONY : lab3/lib/console.c.i
+lab4/kern/printf.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/kern/printf.c.i
+.PHONY : lab4/kern/printf.c.i
 
-lab3/lib/console.s: lab3/lib/console.c.s
+lab4/kern/printf.s: lab4/kern/printf.c.s
 
-.PHONY : lab3/lib/console.s
+.PHONY : lab4/kern/printf.s
 
 # target to generate assembly for a file
-lab3/lib/console.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/lib/console.c.s
-.PHONY : lab3/lib/console.c.s
+lab4/kern/printf.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/kern/printf.c.s
+.PHONY : lab4/kern/printf.c.s
 
-lab3/lib/exit.o: lab3/lib/exit.c.o
+lab4/kern/sched.o: lab4/kern/sched.c.o
 
-.PHONY : lab3/lib/exit.o
+.PHONY : lab4/kern/sched.o
 
 # target to build an object file
-lab3/lib/exit.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/lib/exit.c.o
-.PHONY : lab3/lib/exit.c.o
+lab4/kern/sched.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/kern/sched.c.o
+.PHONY : lab4/kern/sched.c.o
 
-lab3/lib/exit.i: lab3/lib/exit.c.i
+lab4/kern/sched.i: lab4/kern/sched.c.i
 
-.PHONY : lab3/lib/exit.i
+.PHONY : lab4/kern/sched.i
 
 # target to preprocess a source file
-lab3/lib/exit.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/lib/exit.c.i
-.PHONY : lab3/lib/exit.c.i
+lab4/kern/sched.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/kern/sched.c.i
+.PHONY : lab4/kern/sched.c.i
 
-lab3/lib/exit.s: lab3/lib/exit.c.s
+lab4/kern/sched.s: lab4/kern/sched.c.s
 
-.PHONY : lab3/lib/exit.s
+.PHONY : lab4/kern/sched.s
 
 # target to generate assembly for a file
-lab3/lib/exit.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/lib/exit.c.s
-.PHONY : lab3/lib/exit.c.s
+lab4/kern/sched.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/kern/sched.c.s
+.PHONY : lab4/kern/sched.c.s
 
-lab3/lib/libmain.o: lab3/lib/libmain.c.o
+lab4/kern/spinlock.o: lab4/kern/spinlock.c.o
 
-.PHONY : lab3/lib/libmain.o
+.PHONY : lab4/kern/spinlock.o
 
 # target to build an object file
-lab3/lib/libmain.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/lib/libmain.c.o
-.PHONY : lab3/lib/libmain.c.o
+lab4/kern/spinlock.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/kern/spinlock.c.o
+.PHONY : lab4/kern/spinlock.c.o
 
-lab3/lib/libmain.i: lab3/lib/libmain.c.i
+lab4/kern/spinlock.i: lab4/kern/spinlock.c.i
 
-.PHONY : lab3/lib/libmain.i
+.PHONY : lab4/kern/spinlock.i
 
 # target to preprocess a source file
-lab3/lib/libmain.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/lib/libmain.c.i
-.PHONY : lab3/lib/libmain.c.i
+lab4/kern/spinlock.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/kern/spinlock.c.i
+.PHONY : lab4/kern/spinlock.c.i
 
-lab3/lib/libmain.s: lab3/lib/libmain.c.s
+lab4/kern/spinlock.s: lab4/kern/spinlock.c.s
 
-.PHONY : lab3/lib/libmain.s
+.PHONY : lab4/kern/spinlock.s
 
 # target to generate assembly for a file
-lab3/lib/libmain.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/lib/libmain.c.s
-.PHONY : lab3/lib/libmain.c.s
+lab4/kern/spinlock.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/kern/spinlock.c.s
+.PHONY : lab4/kern/spinlock.c.s
 
-lab3/lib/panic.o: lab3/lib/panic.c.o
+lab4/kern/syscall.o: lab4/kern/syscall.c.o
 
-.PHONY : lab3/lib/panic.o
+.PHONY : lab4/kern/syscall.o
 
 # target to build an object file
-lab3/lib/panic.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/lib/panic.c.o
-.PHONY : lab3/lib/panic.c.o
+lab4/kern/syscall.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/kern/syscall.c.o
+.PHONY : lab4/kern/syscall.c.o
 
-lab3/lib/panic.i: lab3/lib/panic.c.i
+lab4/kern/syscall.i: lab4/kern/syscall.c.i
 
-.PHONY : lab3/lib/panic.i
+.PHONY : lab4/kern/syscall.i
 
 # target to preprocess a source file
-lab3/lib/panic.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/lib/panic.c.i
-.PHONY : lab3/lib/panic.c.i
+lab4/kern/syscall.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/kern/syscall.c.i
+.PHONY : lab4/kern/syscall.c.i
 
-lab3/lib/panic.s: lab3/lib/panic.c.s
+lab4/kern/syscall.s: lab4/kern/syscall.c.s
 
-.PHONY : lab3/lib/panic.s
+.PHONY : lab4/kern/syscall.s
 
 # target to generate assembly for a file
-lab3/lib/panic.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/lib/panic.c.s
-.PHONY : lab3/lib/panic.c.s
+lab4/kern/syscall.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/kern/syscall.c.s
+.PHONY : lab4/kern/syscall.c.s
 
-lab3/lib/printf.o: lab3/lib/printf.c.o
+lab4/kern/trap.o: lab4/kern/trap.c.o
 
-.PHONY : lab3/lib/printf.o
+.PHONY : lab4/kern/trap.o
 
 # target to build an object file
-lab3/lib/printf.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/lib/printf.c.o
-.PHONY : lab3/lib/printf.c.o
+lab4/kern/trap.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/kern/trap.c.o
+.PHONY : lab4/kern/trap.c.o
 
-lab3/lib/printf.i: lab3/lib/printf.c.i
+lab4/kern/trap.i: lab4/kern/trap.c.i
 
-.PHONY : lab3/lib/printf.i
+.PHONY : lab4/kern/trap.i
 
 # target to preprocess a source file
-lab3/lib/printf.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/lib/printf.c.i
-.PHONY : lab3/lib/printf.c.i
+lab4/kern/trap.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/kern/trap.c.i
+.PHONY : lab4/kern/trap.c.i
 
-lab3/lib/printf.s: lab3/lib/printf.c.s
+lab4/kern/trap.s: lab4/kern/trap.c.s
 
-.PHONY : lab3/lib/printf.s
+.PHONY : lab4/kern/trap.s
 
 # target to generate assembly for a file
-lab3/lib/printf.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/lib/printf.c.s
-.PHONY : lab3/lib/printf.c.s
+lab4/kern/trap.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/kern/trap.c.s
+.PHONY : lab4/kern/trap.c.s
 
-lab3/lib/printfmt.o: lab3/lib/printfmt.c.o
+lab4/lib/console.o: lab4/lib/console.c.o
 
-.PHONY : lab3/lib/printfmt.o
+.PHONY : lab4/lib/console.o
 
 # target to build an object file
-lab3/lib/printfmt.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/lib/printfmt.c.o
-.PHONY : lab3/lib/printfmt.c.o
+lab4/lib/console.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/lib/console.c.o
+.PHONY : lab4/lib/console.c.o
 
-lab3/lib/printfmt.i: lab3/lib/printfmt.c.i
+lab4/lib/console.i: lab4/lib/console.c.i
 
-.PHONY : lab3/lib/printfmt.i
+.PHONY : lab4/lib/console.i
 
 # target to preprocess a source file
-lab3/lib/printfmt.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/lib/printfmt.c.i
-.PHONY : lab3/lib/printfmt.c.i
+lab4/lib/console.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/lib/console.c.i
+.PHONY : lab4/lib/console.c.i
 
-lab3/lib/printfmt.s: lab3/lib/printfmt.c.s
+lab4/lib/console.s: lab4/lib/console.c.s
 
-.PHONY : lab3/lib/printfmt.s
+.PHONY : lab4/lib/console.s
 
 # target to generate assembly for a file
-lab3/lib/printfmt.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/lib/printfmt.c.s
-.PHONY : lab3/lib/printfmt.c.s
+lab4/lib/console.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/lib/console.c.s
+.PHONY : lab4/lib/console.c.s
 
-lab3/lib/readline.o: lab3/lib/readline.c.o
+lab4/lib/exit.o: lab4/lib/exit.c.o
 
-.PHONY : lab3/lib/readline.o
+.PHONY : lab4/lib/exit.o
 
 # target to build an object file
-lab3/lib/readline.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/lib/readline.c.o
-.PHONY : lab3/lib/readline.c.o
+lab4/lib/exit.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/lib/exit.c.o
+.PHONY : lab4/lib/exit.c.o
 
-lab3/lib/readline.i: lab3/lib/readline.c.i
+lab4/lib/exit.i: lab4/lib/exit.c.i
 
-.PHONY : lab3/lib/readline.i
+.PHONY : lab4/lib/exit.i
 
 # target to preprocess a source file
-lab3/lib/readline.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/lib/readline.c.i
-.PHONY : lab3/lib/readline.c.i
+lab4/lib/exit.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/lib/exit.c.i
+.PHONY : lab4/lib/exit.c.i
 
-lab3/lib/readline.s: lab3/lib/readline.c.s
+lab4/lib/exit.s: lab4/lib/exit.c.s
 
-.PHONY : lab3/lib/readline.s
+.PHONY : lab4/lib/exit.s
 
 # target to generate assembly for a file
-lab3/lib/readline.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/lib/readline.c.s
-.PHONY : lab3/lib/readline.c.s
+lab4/lib/exit.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/lib/exit.c.s
+.PHONY : lab4/lib/exit.c.s
 
-lab3/lib/string.o: lab3/lib/string.c.o
+lab4/lib/fork.o: lab4/lib/fork.c.o
 
-.PHONY : lab3/lib/string.o
+.PHONY : lab4/lib/fork.o
 
 # target to build an object file
-lab3/lib/string.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/lib/string.c.o
-.PHONY : lab3/lib/string.c.o
+lab4/lib/fork.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/lib/fork.c.o
+.PHONY : lab4/lib/fork.c.o
 
-lab3/lib/string.i: lab3/lib/string.c.i
+lab4/lib/fork.i: lab4/lib/fork.c.i
 
-.PHONY : lab3/lib/string.i
+.PHONY : lab4/lib/fork.i
 
 # target to preprocess a source file
-lab3/lib/string.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/lib/string.c.i
-.PHONY : lab3/lib/string.c.i
+lab4/lib/fork.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/lib/fork.c.i
+.PHONY : lab4/lib/fork.c.i
 
-lab3/lib/string.s: lab3/lib/string.c.s
+lab4/lib/fork.s: lab4/lib/fork.c.s
 
-.PHONY : lab3/lib/string.s
+.PHONY : lab4/lib/fork.s
 
 # target to generate assembly for a file
-lab3/lib/string.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/lib/string.c.s
-.PHONY : lab3/lib/string.c.s
+lab4/lib/fork.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/lib/fork.c.s
+.PHONY : lab4/lib/fork.c.s
 
-lab3/lib/syscall.o: lab3/lib/syscall.c.o
+lab4/lib/ipc.o: lab4/lib/ipc.c.o
 
-.PHONY : lab3/lib/syscall.o
+.PHONY : lab4/lib/ipc.o
 
 # target to build an object file
-lab3/lib/syscall.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/lib/syscall.c.o
-.PHONY : lab3/lib/syscall.c.o
+lab4/lib/ipc.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/lib/ipc.c.o
+.PHONY : lab4/lib/ipc.c.o
 
-lab3/lib/syscall.i: lab3/lib/syscall.c.i
+lab4/lib/ipc.i: lab4/lib/ipc.c.i
 
-.PHONY : lab3/lib/syscall.i
+.PHONY : lab4/lib/ipc.i
 
 # target to preprocess a source file
-lab3/lib/syscall.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/lib/syscall.c.i
-.PHONY : lab3/lib/syscall.c.i
+lab4/lib/ipc.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/lib/ipc.c.i
+.PHONY : lab4/lib/ipc.c.i
 
-lab3/lib/syscall.s: lab3/lib/syscall.c.s
+lab4/lib/ipc.s: lab4/lib/ipc.c.s
 
-.PHONY : lab3/lib/syscall.s
+.PHONY : lab4/lib/ipc.s
 
 # target to generate assembly for a file
-lab3/lib/syscall.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/lib/syscall.c.s
-.PHONY : lab3/lib/syscall.c.s
+lab4/lib/ipc.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/lib/ipc.c.s
+.PHONY : lab4/lib/ipc.c.s
 
-lab3/user/badsegment.o: lab3/user/badsegment.c.o
+lab4/lib/libmain.o: lab4/lib/libmain.c.o
 
-.PHONY : lab3/user/badsegment.o
+.PHONY : lab4/lib/libmain.o
 
 # target to build an object file
-lab3/user/badsegment.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/user/badsegment.c.o
-.PHONY : lab3/user/badsegment.c.o
+lab4/lib/libmain.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/lib/libmain.c.o
+.PHONY : lab4/lib/libmain.c.o
 
-lab3/user/badsegment.i: lab3/user/badsegment.c.i
+lab4/lib/libmain.i: lab4/lib/libmain.c.i
 
-.PHONY : lab3/user/badsegment.i
+.PHONY : lab4/lib/libmain.i
 
 # target to preprocess a source file
-lab3/user/badsegment.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/user/badsegment.c.i
-.PHONY : lab3/user/badsegment.c.i
+lab4/lib/libmain.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/lib/libmain.c.i
+.PHONY : lab4/lib/libmain.c.i
 
-lab3/user/badsegment.s: lab3/user/badsegment.c.s
+lab4/lib/libmain.s: lab4/lib/libmain.c.s
 
-.PHONY : lab3/user/badsegment.s
+.PHONY : lab4/lib/libmain.s
 
 # target to generate assembly for a file
-lab3/user/badsegment.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/user/badsegment.c.s
-.PHONY : lab3/user/badsegment.c.s
+lab4/lib/libmain.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/lib/libmain.c.s
+.PHONY : lab4/lib/libmain.c.s
 
-lab3/user/breakpoint.o: lab3/user/breakpoint.c.o
+lab4/lib/panic.o: lab4/lib/panic.c.o
 
-.PHONY : lab3/user/breakpoint.o
+.PHONY : lab4/lib/panic.o
 
 # target to build an object file
-lab3/user/breakpoint.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/user/breakpoint.c.o
-.PHONY : lab3/user/breakpoint.c.o
+lab4/lib/panic.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/lib/panic.c.o
+.PHONY : lab4/lib/panic.c.o
 
-lab3/user/breakpoint.i: lab3/user/breakpoint.c.i
+lab4/lib/panic.i: lab4/lib/panic.c.i
 
-.PHONY : lab3/user/breakpoint.i
+.PHONY : lab4/lib/panic.i
 
 # target to preprocess a source file
-lab3/user/breakpoint.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/user/breakpoint.c.i
-.PHONY : lab3/user/breakpoint.c.i
+lab4/lib/panic.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/lib/panic.c.i
+.PHONY : lab4/lib/panic.c.i
 
-lab3/user/breakpoint.s: lab3/user/breakpoint.c.s
+lab4/lib/panic.s: lab4/lib/panic.c.s
 
-.PHONY : lab3/user/breakpoint.s
+.PHONY : lab4/lib/panic.s
 
 # target to generate assembly for a file
-lab3/user/breakpoint.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/user/breakpoint.c.s
-.PHONY : lab3/user/breakpoint.c.s
+lab4/lib/panic.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/lib/panic.c.s
+.PHONY : lab4/lib/panic.c.s
 
-lab3/user/buggyhello.o: lab3/user/buggyhello.c.o
+lab4/lib/pgfault.o: lab4/lib/pgfault.c.o
 
-.PHONY : lab3/user/buggyhello.o
+.PHONY : lab4/lib/pgfault.o
 
 # target to build an object file
-lab3/user/buggyhello.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/user/buggyhello.c.o
-.PHONY : lab3/user/buggyhello.c.o
+lab4/lib/pgfault.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/lib/pgfault.c.o
+.PHONY : lab4/lib/pgfault.c.o
 
-lab3/user/buggyhello.i: lab3/user/buggyhello.c.i
+lab4/lib/pgfault.i: lab4/lib/pgfault.c.i
 
-.PHONY : lab3/user/buggyhello.i
+.PHONY : lab4/lib/pgfault.i
 
 # target to preprocess a source file
-lab3/user/buggyhello.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/user/buggyhello.c.i
-.PHONY : lab3/user/buggyhello.c.i
+lab4/lib/pgfault.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/lib/pgfault.c.i
+.PHONY : lab4/lib/pgfault.c.i
 
-lab3/user/buggyhello.s: lab3/user/buggyhello.c.s
+lab4/lib/pgfault.s: lab4/lib/pgfault.c.s
 
-.PHONY : lab3/user/buggyhello.s
+.PHONY : lab4/lib/pgfault.s
 
 # target to generate assembly for a file
-lab3/user/buggyhello.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/user/buggyhello.c.s
-.PHONY : lab3/user/buggyhello.c.s
+lab4/lib/pgfault.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/lib/pgfault.c.s
+.PHONY : lab4/lib/pgfault.c.s
 
-lab3/user/buggyhello2.o: lab3/user/buggyhello2.c.o
+lab4/lib/printf.o: lab4/lib/printf.c.o
 
-.PHONY : lab3/user/buggyhello2.o
+.PHONY : lab4/lib/printf.o
 
 # target to build an object file
-lab3/user/buggyhello2.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/user/buggyhello2.c.o
-.PHONY : lab3/user/buggyhello2.c.o
+lab4/lib/printf.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/lib/printf.c.o
+.PHONY : lab4/lib/printf.c.o
 
-lab3/user/buggyhello2.i: lab3/user/buggyhello2.c.i
+lab4/lib/printf.i: lab4/lib/printf.c.i
 
-.PHONY : lab3/user/buggyhello2.i
+.PHONY : lab4/lib/printf.i
 
 # target to preprocess a source file
-lab3/user/buggyhello2.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/user/buggyhello2.c.i
-.PHONY : lab3/user/buggyhello2.c.i
+lab4/lib/printf.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/lib/printf.c.i
+.PHONY : lab4/lib/printf.c.i
 
-lab3/user/buggyhello2.s: lab3/user/buggyhello2.c.s
+lab4/lib/printf.s: lab4/lib/printf.c.s
 
-.PHONY : lab3/user/buggyhello2.s
+.PHONY : lab4/lib/printf.s
 
 # target to generate assembly for a file
-lab3/user/buggyhello2.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/user/buggyhello2.c.s
-.PHONY : lab3/user/buggyhello2.c.s
+lab4/lib/printf.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/lib/printf.c.s
+.PHONY : lab4/lib/printf.c.s
 
-lab3/user/divzero.o: lab3/user/divzero.c.o
+lab4/lib/printfmt.o: lab4/lib/printfmt.c.o
 
-.PHONY : lab3/user/divzero.o
+.PHONY : lab4/lib/printfmt.o
 
 # target to build an object file
-lab3/user/divzero.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/user/divzero.c.o
-.PHONY : lab3/user/divzero.c.o
+lab4/lib/printfmt.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/lib/printfmt.c.o
+.PHONY : lab4/lib/printfmt.c.o
 
-lab3/user/divzero.i: lab3/user/divzero.c.i
+lab4/lib/printfmt.i: lab4/lib/printfmt.c.i
 
-.PHONY : lab3/user/divzero.i
+.PHONY : lab4/lib/printfmt.i
 
 # target to preprocess a source file
-lab3/user/divzero.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/user/divzero.c.i
-.PHONY : lab3/user/divzero.c.i
+lab4/lib/printfmt.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/lib/printfmt.c.i
+.PHONY : lab4/lib/printfmt.c.i
 
-lab3/user/divzero.s: lab3/user/divzero.c.s
+lab4/lib/printfmt.s: lab4/lib/printfmt.c.s
 
-.PHONY : lab3/user/divzero.s
+.PHONY : lab4/lib/printfmt.s
 
 # target to generate assembly for a file
-lab3/user/divzero.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/user/divzero.c.s
-.PHONY : lab3/user/divzero.c.s
+lab4/lib/printfmt.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/lib/printfmt.c.s
+.PHONY : lab4/lib/printfmt.c.s
 
-lab3/user/evilhello.o: lab3/user/evilhello.c.o
+lab4/lib/readline.o: lab4/lib/readline.c.o
 
-.PHONY : lab3/user/evilhello.o
+.PHONY : lab4/lib/readline.o
 
 # target to build an object file
-lab3/user/evilhello.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/user/evilhello.c.o
-.PHONY : lab3/user/evilhello.c.o
+lab4/lib/readline.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/lib/readline.c.o
+.PHONY : lab4/lib/readline.c.o
 
-lab3/user/evilhello.i: lab3/user/evilhello.c.i
+lab4/lib/readline.i: lab4/lib/readline.c.i
 
-.PHONY : lab3/user/evilhello.i
+.PHONY : lab4/lib/readline.i
 
 # target to preprocess a source file
-lab3/user/evilhello.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/user/evilhello.c.i
-.PHONY : lab3/user/evilhello.c.i
+lab4/lib/readline.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/lib/readline.c.i
+.PHONY : lab4/lib/readline.c.i
 
-lab3/user/evilhello.s: lab3/user/evilhello.c.s
+lab4/lib/readline.s: lab4/lib/readline.c.s
 
-.PHONY : lab3/user/evilhello.s
+.PHONY : lab4/lib/readline.s
 
 # target to generate assembly for a file
-lab3/user/evilhello.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/user/evilhello.c.s
-.PHONY : lab3/user/evilhello.c.s
+lab4/lib/readline.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/lib/readline.c.s
+.PHONY : lab4/lib/readline.c.s
 
-lab3/user/faultread.o: lab3/user/faultread.c.o
+lab4/lib/string.o: lab4/lib/string.c.o
 
-.PHONY : lab3/user/faultread.o
+.PHONY : lab4/lib/string.o
 
 # target to build an object file
-lab3/user/faultread.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/user/faultread.c.o
-.PHONY : lab3/user/faultread.c.o
+lab4/lib/string.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/lib/string.c.o
+.PHONY : lab4/lib/string.c.o
 
-lab3/user/faultread.i: lab3/user/faultread.c.i
+lab4/lib/string.i: lab4/lib/string.c.i
 
-.PHONY : lab3/user/faultread.i
+.PHONY : lab4/lib/string.i
 
 # target to preprocess a source file
-lab3/user/faultread.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/user/faultread.c.i
-.PHONY : lab3/user/faultread.c.i
+lab4/lib/string.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/lib/string.c.i
+.PHONY : lab4/lib/string.c.i
 
-lab3/user/faultread.s: lab3/user/faultread.c.s
+lab4/lib/string.s: lab4/lib/string.c.s
 
-.PHONY : lab3/user/faultread.s
+.PHONY : lab4/lib/string.s
 
 # target to generate assembly for a file
-lab3/user/faultread.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/user/faultread.c.s
-.PHONY : lab3/user/faultread.c.s
+lab4/lib/string.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/lib/string.c.s
+.PHONY : lab4/lib/string.c.s
 
-lab3/user/faultreadkernel.o: lab3/user/faultreadkernel.c.o
+lab4/lib/syscall.o: lab4/lib/syscall.c.o
 
-.PHONY : lab3/user/faultreadkernel.o
+.PHONY : lab4/lib/syscall.o
 
 # target to build an object file
-lab3/user/faultreadkernel.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/user/faultreadkernel.c.o
-.PHONY : lab3/user/faultreadkernel.c.o
+lab4/lib/syscall.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/lib/syscall.c.o
+.PHONY : lab4/lib/syscall.c.o
 
-lab3/user/faultreadkernel.i: lab3/user/faultreadkernel.c.i
+lab4/lib/syscall.i: lab4/lib/syscall.c.i
 
-.PHONY : lab3/user/faultreadkernel.i
+.PHONY : lab4/lib/syscall.i
 
 # target to preprocess a source file
-lab3/user/faultreadkernel.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/user/faultreadkernel.c.i
-.PHONY : lab3/user/faultreadkernel.c.i
+lab4/lib/syscall.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/lib/syscall.c.i
+.PHONY : lab4/lib/syscall.c.i
 
-lab3/user/faultreadkernel.s: lab3/user/faultreadkernel.c.s
+lab4/lib/syscall.s: lab4/lib/syscall.c.s
 
-.PHONY : lab3/user/faultreadkernel.s
+.PHONY : lab4/lib/syscall.s
 
 # target to generate assembly for a file
-lab3/user/faultreadkernel.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/user/faultreadkernel.c.s
-.PHONY : lab3/user/faultreadkernel.c.s
+lab4/lib/syscall.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/lib/syscall.c.s
+.PHONY : lab4/lib/syscall.c.s
 
-lab3/user/faultwrite.o: lab3/user/faultwrite.c.o
+lab4/user/badsegment.o: lab4/user/badsegment.c.o
 
-.PHONY : lab3/user/faultwrite.o
+.PHONY : lab4/user/badsegment.o
 
 # target to build an object file
-lab3/user/faultwrite.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/user/faultwrite.c.o
-.PHONY : lab3/user/faultwrite.c.o
+lab4/user/badsegment.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/badsegment.c.o
+.PHONY : lab4/user/badsegment.c.o
 
-lab3/user/faultwrite.i: lab3/user/faultwrite.c.i
+lab4/user/badsegment.i: lab4/user/badsegment.c.i
 
-.PHONY : lab3/user/faultwrite.i
+.PHONY : lab4/user/badsegment.i
 
 # target to preprocess a source file
-lab3/user/faultwrite.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/user/faultwrite.c.i
-.PHONY : lab3/user/faultwrite.c.i
+lab4/user/badsegment.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/badsegment.c.i
+.PHONY : lab4/user/badsegment.c.i
 
-lab3/user/faultwrite.s: lab3/user/faultwrite.c.s
+lab4/user/badsegment.s: lab4/user/badsegment.c.s
 
-.PHONY : lab3/user/faultwrite.s
+.PHONY : lab4/user/badsegment.s
 
 # target to generate assembly for a file
-lab3/user/faultwrite.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/user/faultwrite.c.s
-.PHONY : lab3/user/faultwrite.c.s
+lab4/user/badsegment.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/badsegment.c.s
+.PHONY : lab4/user/badsegment.c.s
 
-lab3/user/faultwritekernel.o: lab3/user/faultwritekernel.c.o
+lab4/user/breakpoint.o: lab4/user/breakpoint.c.o
 
-.PHONY : lab3/user/faultwritekernel.o
+.PHONY : lab4/user/breakpoint.o
 
 # target to build an object file
-lab3/user/faultwritekernel.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/user/faultwritekernel.c.o
-.PHONY : lab3/user/faultwritekernel.c.o
+lab4/user/breakpoint.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/breakpoint.c.o
+.PHONY : lab4/user/breakpoint.c.o
 
-lab3/user/faultwritekernel.i: lab3/user/faultwritekernel.c.i
+lab4/user/breakpoint.i: lab4/user/breakpoint.c.i
 
-.PHONY : lab3/user/faultwritekernel.i
+.PHONY : lab4/user/breakpoint.i
 
 # target to preprocess a source file
-lab3/user/faultwritekernel.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/user/faultwritekernel.c.i
-.PHONY : lab3/user/faultwritekernel.c.i
+lab4/user/breakpoint.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/breakpoint.c.i
+.PHONY : lab4/user/breakpoint.c.i
 
-lab3/user/faultwritekernel.s: lab3/user/faultwritekernel.c.s
+lab4/user/breakpoint.s: lab4/user/breakpoint.c.s
 
-.PHONY : lab3/user/faultwritekernel.s
+.PHONY : lab4/user/breakpoint.s
 
 # target to generate assembly for a file
-lab3/user/faultwritekernel.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/user/faultwritekernel.c.s
-.PHONY : lab3/user/faultwritekernel.c.s
+lab4/user/breakpoint.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/breakpoint.c.s
+.PHONY : lab4/user/breakpoint.c.s
 
-lab3/user/hello.o: lab3/user/hello.c.o
+lab4/user/buggyhello.o: lab4/user/buggyhello.c.o
 
-.PHONY : lab3/user/hello.o
+.PHONY : lab4/user/buggyhello.o
 
 # target to build an object file
-lab3/user/hello.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/user/hello.c.o
-.PHONY : lab3/user/hello.c.o
+lab4/user/buggyhello.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/buggyhello.c.o
+.PHONY : lab4/user/buggyhello.c.o
 
-lab3/user/hello.i: lab3/user/hello.c.i
+lab4/user/buggyhello.i: lab4/user/buggyhello.c.i
 
-.PHONY : lab3/user/hello.i
+.PHONY : lab4/user/buggyhello.i
 
 # target to preprocess a source file
-lab3/user/hello.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/user/hello.c.i
-.PHONY : lab3/user/hello.c.i
+lab4/user/buggyhello.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/buggyhello.c.i
+.PHONY : lab4/user/buggyhello.c.i
 
-lab3/user/hello.s: lab3/user/hello.c.s
+lab4/user/buggyhello.s: lab4/user/buggyhello.c.s
 
-.PHONY : lab3/user/hello.s
+.PHONY : lab4/user/buggyhello.s
 
 # target to generate assembly for a file
-lab3/user/hello.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/user/hello.c.s
-.PHONY : lab3/user/hello.c.s
+lab4/user/buggyhello.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/buggyhello.c.s
+.PHONY : lab4/user/buggyhello.c.s
 
-lab3/user/sendpage.o: lab3/user/sendpage.c.o
+lab4/user/buggyhello2.o: lab4/user/buggyhello2.c.o
 
-.PHONY : lab3/user/sendpage.o
+.PHONY : lab4/user/buggyhello2.o
 
 # target to build an object file
-lab3/user/sendpage.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/user/sendpage.c.o
-.PHONY : lab3/user/sendpage.c.o
+lab4/user/buggyhello2.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/buggyhello2.c.o
+.PHONY : lab4/user/buggyhello2.c.o
 
-lab3/user/sendpage.i: lab3/user/sendpage.c.i
+lab4/user/buggyhello2.i: lab4/user/buggyhello2.c.i
 
-.PHONY : lab3/user/sendpage.i
+.PHONY : lab4/user/buggyhello2.i
 
 # target to preprocess a source file
-lab3/user/sendpage.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/user/sendpage.c.i
-.PHONY : lab3/user/sendpage.c.i
+lab4/user/buggyhello2.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/buggyhello2.c.i
+.PHONY : lab4/user/buggyhello2.c.i
 
-lab3/user/sendpage.s: lab3/user/sendpage.c.s
+lab4/user/buggyhello2.s: lab4/user/buggyhello2.c.s
 
-.PHONY : lab3/user/sendpage.s
+.PHONY : lab4/user/buggyhello2.s
 
 # target to generate assembly for a file
-lab3/user/sendpage.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/user/sendpage.c.s
-.PHONY : lab3/user/sendpage.c.s
+lab4/user/buggyhello2.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/buggyhello2.c.s
+.PHONY : lab4/user/buggyhello2.c.s
 
-lab3/user/softint.o: lab3/user/softint.c.o
+lab4/user/divzero.o: lab4/user/divzero.c.o
 
-.PHONY : lab3/user/softint.o
+.PHONY : lab4/user/divzero.o
 
 # target to build an object file
-lab3/user/softint.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/user/softint.c.o
-.PHONY : lab3/user/softint.c.o
+lab4/user/divzero.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/divzero.c.o
+.PHONY : lab4/user/divzero.c.o
 
-lab3/user/softint.i: lab3/user/softint.c.i
+lab4/user/divzero.i: lab4/user/divzero.c.i
 
-.PHONY : lab3/user/softint.i
+.PHONY : lab4/user/divzero.i
 
 # target to preprocess a source file
-lab3/user/softint.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/user/softint.c.i
-.PHONY : lab3/user/softint.c.i
+lab4/user/divzero.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/divzero.c.i
+.PHONY : lab4/user/divzero.c.i
 
-lab3/user/softint.s: lab3/user/softint.c.s
+lab4/user/divzero.s: lab4/user/divzero.c.s
 
-.PHONY : lab3/user/softint.s
+.PHONY : lab4/user/divzero.s
 
 # target to generate assembly for a file
-lab3/user/softint.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/user/softint.c.s
-.PHONY : lab3/user/softint.c.s
+lab4/user/divzero.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/divzero.c.s
+.PHONY : lab4/user/divzero.c.s
 
-lab3/user/testbss.o: lab3/user/testbss.c.o
+lab4/user/dumbfork.o: lab4/user/dumbfork.c.o
 
-.PHONY : lab3/user/testbss.o
+.PHONY : lab4/user/dumbfork.o
 
 # target to build an object file
-lab3/user/testbss.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/user/testbss.c.o
-.PHONY : lab3/user/testbss.c.o
+lab4/user/dumbfork.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/dumbfork.c.o
+.PHONY : lab4/user/dumbfork.c.o
 
-lab3/user/testbss.i: lab3/user/testbss.c.i
+lab4/user/dumbfork.i: lab4/user/dumbfork.c.i
 
-.PHONY : lab3/user/testbss.i
+.PHONY : lab4/user/dumbfork.i
 
 # target to preprocess a source file
-lab3/user/testbss.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/user/testbss.c.i
-.PHONY : lab3/user/testbss.c.i
+lab4/user/dumbfork.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/dumbfork.c.i
+.PHONY : lab4/user/dumbfork.c.i
 
-lab3/user/testbss.s: lab3/user/testbss.c.s
+lab4/user/dumbfork.s: lab4/user/dumbfork.c.s
 
-.PHONY : lab3/user/testbss.s
+.PHONY : lab4/user/dumbfork.s
 
 # target to generate assembly for a file
-lab3/user/testbss.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/user/testbss.c.s
-.PHONY : lab3/user/testbss.c.s
+lab4/user/dumbfork.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/dumbfork.c.s
+.PHONY : lab4/user/dumbfork.c.s
 
-lab3/yyTest.o: lab3/yyTest.c.o
+lab4/user/evilhello.o: lab4/user/evilhello.c.o
 
-.PHONY : lab3/yyTest.o
+.PHONY : lab4/user/evilhello.o
 
 # target to build an object file
-lab3/yyTest.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/yyTest.c.o
-.PHONY : lab3/yyTest.c.o
+lab4/user/evilhello.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/evilhello.c.o
+.PHONY : lab4/user/evilhello.c.o
 
-lab3/yyTest.i: lab3/yyTest.c.i
+lab4/user/evilhello.i: lab4/user/evilhello.c.i
 
-.PHONY : lab3/yyTest.i
+.PHONY : lab4/user/evilhello.i
 
 # target to preprocess a source file
-lab3/yyTest.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/yyTest.c.i
-.PHONY : lab3/yyTest.c.i
+lab4/user/evilhello.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/evilhello.c.i
+.PHONY : lab4/user/evilhello.c.i
 
-lab3/yyTest.s: lab3/yyTest.c.s
+lab4/user/evilhello.s: lab4/user/evilhello.c.s
 
-.PHONY : lab3/yyTest.s
+.PHONY : lab4/user/evilhello.s
 
 # target to generate assembly for a file
-lab3/yyTest.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_3018_Fall.dir/build.make CMakeFiles/JOS_3018_Fall.dir/lab3/yyTest.c.s
-.PHONY : lab3/yyTest.c.s
+lab4/user/evilhello.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/evilhello.c.s
+.PHONY : lab4/user/evilhello.c.s
+
+lab4/user/fairness.o: lab4/user/fairness.c.o
+
+.PHONY : lab4/user/fairness.o
+
+# target to build an object file
+lab4/user/fairness.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/fairness.c.o
+.PHONY : lab4/user/fairness.c.o
+
+lab4/user/fairness.i: lab4/user/fairness.c.i
+
+.PHONY : lab4/user/fairness.i
+
+# target to preprocess a source file
+lab4/user/fairness.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/fairness.c.i
+.PHONY : lab4/user/fairness.c.i
+
+lab4/user/fairness.s: lab4/user/fairness.c.s
+
+.PHONY : lab4/user/fairness.s
+
+# target to generate assembly for a file
+lab4/user/fairness.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/fairness.c.s
+.PHONY : lab4/user/fairness.c.s
+
+lab4/user/faultalloc.o: lab4/user/faultalloc.c.o
+
+.PHONY : lab4/user/faultalloc.o
+
+# target to build an object file
+lab4/user/faultalloc.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/faultalloc.c.o
+.PHONY : lab4/user/faultalloc.c.o
+
+lab4/user/faultalloc.i: lab4/user/faultalloc.c.i
+
+.PHONY : lab4/user/faultalloc.i
+
+# target to preprocess a source file
+lab4/user/faultalloc.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/faultalloc.c.i
+.PHONY : lab4/user/faultalloc.c.i
+
+lab4/user/faultalloc.s: lab4/user/faultalloc.c.s
+
+.PHONY : lab4/user/faultalloc.s
+
+# target to generate assembly for a file
+lab4/user/faultalloc.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/faultalloc.c.s
+.PHONY : lab4/user/faultalloc.c.s
+
+lab4/user/faultallocbad.o: lab4/user/faultallocbad.c.o
+
+.PHONY : lab4/user/faultallocbad.o
+
+# target to build an object file
+lab4/user/faultallocbad.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/faultallocbad.c.o
+.PHONY : lab4/user/faultallocbad.c.o
+
+lab4/user/faultallocbad.i: lab4/user/faultallocbad.c.i
+
+.PHONY : lab4/user/faultallocbad.i
+
+# target to preprocess a source file
+lab4/user/faultallocbad.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/faultallocbad.c.i
+.PHONY : lab4/user/faultallocbad.c.i
+
+lab4/user/faultallocbad.s: lab4/user/faultallocbad.c.s
+
+.PHONY : lab4/user/faultallocbad.s
+
+# target to generate assembly for a file
+lab4/user/faultallocbad.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/faultallocbad.c.s
+.PHONY : lab4/user/faultallocbad.c.s
+
+lab4/user/faultdie.o: lab4/user/faultdie.c.o
+
+.PHONY : lab4/user/faultdie.o
+
+# target to build an object file
+lab4/user/faultdie.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/faultdie.c.o
+.PHONY : lab4/user/faultdie.c.o
+
+lab4/user/faultdie.i: lab4/user/faultdie.c.i
+
+.PHONY : lab4/user/faultdie.i
+
+# target to preprocess a source file
+lab4/user/faultdie.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/faultdie.c.i
+.PHONY : lab4/user/faultdie.c.i
+
+lab4/user/faultdie.s: lab4/user/faultdie.c.s
+
+.PHONY : lab4/user/faultdie.s
+
+# target to generate assembly for a file
+lab4/user/faultdie.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/faultdie.c.s
+.PHONY : lab4/user/faultdie.c.s
+
+lab4/user/faultevilhandler.o: lab4/user/faultevilhandler.c.o
+
+.PHONY : lab4/user/faultevilhandler.o
+
+# target to build an object file
+lab4/user/faultevilhandler.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/faultevilhandler.c.o
+.PHONY : lab4/user/faultevilhandler.c.o
+
+lab4/user/faultevilhandler.i: lab4/user/faultevilhandler.c.i
+
+.PHONY : lab4/user/faultevilhandler.i
+
+# target to preprocess a source file
+lab4/user/faultevilhandler.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/faultevilhandler.c.i
+.PHONY : lab4/user/faultevilhandler.c.i
+
+lab4/user/faultevilhandler.s: lab4/user/faultevilhandler.c.s
+
+.PHONY : lab4/user/faultevilhandler.s
+
+# target to generate assembly for a file
+lab4/user/faultevilhandler.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/faultevilhandler.c.s
+.PHONY : lab4/user/faultevilhandler.c.s
+
+lab4/user/faultnostack.o: lab4/user/faultnostack.c.o
+
+.PHONY : lab4/user/faultnostack.o
+
+# target to build an object file
+lab4/user/faultnostack.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/faultnostack.c.o
+.PHONY : lab4/user/faultnostack.c.o
+
+lab4/user/faultnostack.i: lab4/user/faultnostack.c.i
+
+.PHONY : lab4/user/faultnostack.i
+
+# target to preprocess a source file
+lab4/user/faultnostack.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/faultnostack.c.i
+.PHONY : lab4/user/faultnostack.c.i
+
+lab4/user/faultnostack.s: lab4/user/faultnostack.c.s
+
+.PHONY : lab4/user/faultnostack.s
+
+# target to generate assembly for a file
+lab4/user/faultnostack.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/faultnostack.c.s
+.PHONY : lab4/user/faultnostack.c.s
+
+lab4/user/faultread.o: lab4/user/faultread.c.o
+
+.PHONY : lab4/user/faultread.o
+
+# target to build an object file
+lab4/user/faultread.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/faultread.c.o
+.PHONY : lab4/user/faultread.c.o
+
+lab4/user/faultread.i: lab4/user/faultread.c.i
+
+.PHONY : lab4/user/faultread.i
+
+# target to preprocess a source file
+lab4/user/faultread.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/faultread.c.i
+.PHONY : lab4/user/faultread.c.i
+
+lab4/user/faultread.s: lab4/user/faultread.c.s
+
+.PHONY : lab4/user/faultread.s
+
+# target to generate assembly for a file
+lab4/user/faultread.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/faultread.c.s
+.PHONY : lab4/user/faultread.c.s
+
+lab4/user/faultreadkernel.o: lab4/user/faultreadkernel.c.o
+
+.PHONY : lab4/user/faultreadkernel.o
+
+# target to build an object file
+lab4/user/faultreadkernel.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/faultreadkernel.c.o
+.PHONY : lab4/user/faultreadkernel.c.o
+
+lab4/user/faultreadkernel.i: lab4/user/faultreadkernel.c.i
+
+.PHONY : lab4/user/faultreadkernel.i
+
+# target to preprocess a source file
+lab4/user/faultreadkernel.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/faultreadkernel.c.i
+.PHONY : lab4/user/faultreadkernel.c.i
+
+lab4/user/faultreadkernel.s: lab4/user/faultreadkernel.c.s
+
+.PHONY : lab4/user/faultreadkernel.s
+
+# target to generate assembly for a file
+lab4/user/faultreadkernel.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/faultreadkernel.c.s
+.PHONY : lab4/user/faultreadkernel.c.s
+
+lab4/user/faultwrite.o: lab4/user/faultwrite.c.o
+
+.PHONY : lab4/user/faultwrite.o
+
+# target to build an object file
+lab4/user/faultwrite.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/faultwrite.c.o
+.PHONY : lab4/user/faultwrite.c.o
+
+lab4/user/faultwrite.i: lab4/user/faultwrite.c.i
+
+.PHONY : lab4/user/faultwrite.i
+
+# target to preprocess a source file
+lab4/user/faultwrite.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/faultwrite.c.i
+.PHONY : lab4/user/faultwrite.c.i
+
+lab4/user/faultwrite.s: lab4/user/faultwrite.c.s
+
+.PHONY : lab4/user/faultwrite.s
+
+# target to generate assembly for a file
+lab4/user/faultwrite.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/faultwrite.c.s
+.PHONY : lab4/user/faultwrite.c.s
+
+lab4/user/faultwritekernel.o: lab4/user/faultwritekernel.c.o
+
+.PHONY : lab4/user/faultwritekernel.o
+
+# target to build an object file
+lab4/user/faultwritekernel.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/faultwritekernel.c.o
+.PHONY : lab4/user/faultwritekernel.c.o
+
+lab4/user/faultwritekernel.i: lab4/user/faultwritekernel.c.i
+
+.PHONY : lab4/user/faultwritekernel.i
+
+# target to preprocess a source file
+lab4/user/faultwritekernel.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/faultwritekernel.c.i
+.PHONY : lab4/user/faultwritekernel.c.i
+
+lab4/user/faultwritekernel.s: lab4/user/faultwritekernel.c.s
+
+.PHONY : lab4/user/faultwritekernel.s
+
+# target to generate assembly for a file
+lab4/user/faultwritekernel.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/faultwritekernel.c.s
+.PHONY : lab4/user/faultwritekernel.c.s
+
+lab4/user/forktree.o: lab4/user/forktree.c.o
+
+.PHONY : lab4/user/forktree.o
+
+# target to build an object file
+lab4/user/forktree.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/forktree.c.o
+.PHONY : lab4/user/forktree.c.o
+
+lab4/user/forktree.i: lab4/user/forktree.c.i
+
+.PHONY : lab4/user/forktree.i
+
+# target to preprocess a source file
+lab4/user/forktree.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/forktree.c.i
+.PHONY : lab4/user/forktree.c.i
+
+lab4/user/forktree.s: lab4/user/forktree.c.s
+
+.PHONY : lab4/user/forktree.s
+
+# target to generate assembly for a file
+lab4/user/forktree.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/forktree.c.s
+.PHONY : lab4/user/forktree.c.s
+
+lab4/user/hello.o: lab4/user/hello.c.o
+
+.PHONY : lab4/user/hello.o
+
+# target to build an object file
+lab4/user/hello.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/hello.c.o
+.PHONY : lab4/user/hello.c.o
+
+lab4/user/hello.i: lab4/user/hello.c.i
+
+.PHONY : lab4/user/hello.i
+
+# target to preprocess a source file
+lab4/user/hello.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/hello.c.i
+.PHONY : lab4/user/hello.c.i
+
+lab4/user/hello.s: lab4/user/hello.c.s
+
+.PHONY : lab4/user/hello.s
+
+# target to generate assembly for a file
+lab4/user/hello.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/hello.c.s
+.PHONY : lab4/user/hello.c.s
+
+lab4/user/idle.o: lab4/user/idle.c.o
+
+.PHONY : lab4/user/idle.o
+
+# target to build an object file
+lab4/user/idle.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/idle.c.o
+.PHONY : lab4/user/idle.c.o
+
+lab4/user/idle.i: lab4/user/idle.c.i
+
+.PHONY : lab4/user/idle.i
+
+# target to preprocess a source file
+lab4/user/idle.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/idle.c.i
+.PHONY : lab4/user/idle.c.i
+
+lab4/user/idle.s: lab4/user/idle.c.s
+
+.PHONY : lab4/user/idle.s
+
+# target to generate assembly for a file
+lab4/user/idle.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/idle.c.s
+.PHONY : lab4/user/idle.c.s
+
+lab4/user/pingpong.o: lab4/user/pingpong.c.o
+
+.PHONY : lab4/user/pingpong.o
+
+# target to build an object file
+lab4/user/pingpong.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/pingpong.c.o
+.PHONY : lab4/user/pingpong.c.o
+
+lab4/user/pingpong.i: lab4/user/pingpong.c.i
+
+.PHONY : lab4/user/pingpong.i
+
+# target to preprocess a source file
+lab4/user/pingpong.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/pingpong.c.i
+.PHONY : lab4/user/pingpong.c.i
+
+lab4/user/pingpong.s: lab4/user/pingpong.c.s
+
+.PHONY : lab4/user/pingpong.s
+
+# target to generate assembly for a file
+lab4/user/pingpong.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/pingpong.c.s
+.PHONY : lab4/user/pingpong.c.s
+
+lab4/user/pingpongs.o: lab4/user/pingpongs.c.o
+
+.PHONY : lab4/user/pingpongs.o
+
+# target to build an object file
+lab4/user/pingpongs.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/pingpongs.c.o
+.PHONY : lab4/user/pingpongs.c.o
+
+lab4/user/pingpongs.i: lab4/user/pingpongs.c.i
+
+.PHONY : lab4/user/pingpongs.i
+
+# target to preprocess a source file
+lab4/user/pingpongs.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/pingpongs.c.i
+.PHONY : lab4/user/pingpongs.c.i
+
+lab4/user/pingpongs.s: lab4/user/pingpongs.c.s
+
+.PHONY : lab4/user/pingpongs.s
+
+# target to generate assembly for a file
+lab4/user/pingpongs.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/pingpongs.c.s
+.PHONY : lab4/user/pingpongs.c.s
+
+lab4/user/primes.o: lab4/user/primes.c.o
+
+.PHONY : lab4/user/primes.o
+
+# target to build an object file
+lab4/user/primes.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/primes.c.o
+.PHONY : lab4/user/primes.c.o
+
+lab4/user/primes.i: lab4/user/primes.c.i
+
+.PHONY : lab4/user/primes.i
+
+# target to preprocess a source file
+lab4/user/primes.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/primes.c.i
+.PHONY : lab4/user/primes.c.i
+
+lab4/user/primes.s: lab4/user/primes.c.s
+
+.PHONY : lab4/user/primes.s
+
+# target to generate assembly for a file
+lab4/user/primes.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/primes.c.s
+.PHONY : lab4/user/primes.c.s
+
+lab4/user/sendpage.o: lab4/user/sendpage.c.o
+
+.PHONY : lab4/user/sendpage.o
+
+# target to build an object file
+lab4/user/sendpage.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/sendpage.c.o
+.PHONY : lab4/user/sendpage.c.o
+
+lab4/user/sendpage.i: lab4/user/sendpage.c.i
+
+.PHONY : lab4/user/sendpage.i
+
+# target to preprocess a source file
+lab4/user/sendpage.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/sendpage.c.i
+.PHONY : lab4/user/sendpage.c.i
+
+lab4/user/sendpage.s: lab4/user/sendpage.c.s
+
+.PHONY : lab4/user/sendpage.s
+
+# target to generate assembly for a file
+lab4/user/sendpage.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/sendpage.c.s
+.PHONY : lab4/user/sendpage.c.s
+
+lab4/user/softint.o: lab4/user/softint.c.o
+
+.PHONY : lab4/user/softint.o
+
+# target to build an object file
+lab4/user/softint.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/softint.c.o
+.PHONY : lab4/user/softint.c.o
+
+lab4/user/softint.i: lab4/user/softint.c.i
+
+.PHONY : lab4/user/softint.i
+
+# target to preprocess a source file
+lab4/user/softint.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/softint.c.i
+.PHONY : lab4/user/softint.c.i
+
+lab4/user/softint.s: lab4/user/softint.c.s
+
+.PHONY : lab4/user/softint.s
+
+# target to generate assembly for a file
+lab4/user/softint.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/softint.c.s
+.PHONY : lab4/user/softint.c.s
+
+lab4/user/spin.o: lab4/user/spin.c.o
+
+.PHONY : lab4/user/spin.o
+
+# target to build an object file
+lab4/user/spin.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/spin.c.o
+.PHONY : lab4/user/spin.c.o
+
+lab4/user/spin.i: lab4/user/spin.c.i
+
+.PHONY : lab4/user/spin.i
+
+# target to preprocess a source file
+lab4/user/spin.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/spin.c.i
+.PHONY : lab4/user/spin.c.i
+
+lab4/user/spin.s: lab4/user/spin.c.s
+
+.PHONY : lab4/user/spin.s
+
+# target to generate assembly for a file
+lab4/user/spin.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/spin.c.s
+.PHONY : lab4/user/spin.c.s
+
+lab4/user/stresssched.o: lab4/user/stresssched.c.o
+
+.PHONY : lab4/user/stresssched.o
+
+# target to build an object file
+lab4/user/stresssched.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/stresssched.c.o
+.PHONY : lab4/user/stresssched.c.o
+
+lab4/user/stresssched.i: lab4/user/stresssched.c.i
+
+.PHONY : lab4/user/stresssched.i
+
+# target to preprocess a source file
+lab4/user/stresssched.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/stresssched.c.i
+.PHONY : lab4/user/stresssched.c.i
+
+lab4/user/stresssched.s: lab4/user/stresssched.c.s
+
+.PHONY : lab4/user/stresssched.s
+
+# target to generate assembly for a file
+lab4/user/stresssched.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/stresssched.c.s
+.PHONY : lab4/user/stresssched.c.s
+
+lab4/user/testbss.o: lab4/user/testbss.c.o
+
+.PHONY : lab4/user/testbss.o
+
+# target to build an object file
+lab4/user/testbss.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/testbss.c.o
+.PHONY : lab4/user/testbss.c.o
+
+lab4/user/testbss.i: lab4/user/testbss.c.i
+
+.PHONY : lab4/user/testbss.i
+
+# target to preprocess a source file
+lab4/user/testbss.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/testbss.c.i
+.PHONY : lab4/user/testbss.c.i
+
+lab4/user/testbss.s: lab4/user/testbss.c.s
+
+.PHONY : lab4/user/testbss.s
+
+# target to generate assembly for a file
+lab4/user/testbss.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/testbss.c.s
+.PHONY : lab4/user/testbss.c.s
+
+lab4/user/yield.o: lab4/user/yield.c.o
+
+.PHONY : lab4/user/yield.o
+
+# target to build an object file
+lab4/user/yield.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/yield.c.o
+.PHONY : lab4/user/yield.c.o
+
+lab4/user/yield.i: lab4/user/yield.c.i
+
+.PHONY : lab4/user/yield.i
+
+# target to preprocess a source file
+lab4/user/yield.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/yield.c.i
+.PHONY : lab4/user/yield.c.i
+
+lab4/user/yield.s: lab4/user/yield.c.s
+
+.PHONY : lab4/user/yield.s
+
+# target to generate assembly for a file
+lab4/user/yield.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/JOS_4018_Fall.dir/build.make CMakeFiles/JOS_4018_Fall.dir/lab4/user/yield.c.s
+.PHONY : lab4/user/yield.c.s
 
 # Help Target
 help:
@@ -1149,118 +1716,181 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... JOS_3018_Fall"
-	@echo "... lab3/boot/main.o"
-	@echo "... lab3/boot/main.i"
-	@echo "... lab3/boot/main.s"
-	@echo "... lab3/fs/test.o"
-	@echo "... lab3/fs/test.i"
-	@echo "... lab3/fs/test.s"
-	@echo "... lab3/kern/console.o"
-	@echo "... lab3/kern/console.i"
-	@echo "... lab3/kern/console.s"
-	@echo "... lab3/kern/entrypgdir.o"
-	@echo "... lab3/kern/entrypgdir.i"
-	@echo "... lab3/kern/entrypgdir.s"
-	@echo "... lab3/kern/env.o"
-	@echo "... lab3/kern/env.i"
-	@echo "... lab3/kern/env.s"
-	@echo "... lab3/kern/init.o"
-	@echo "... lab3/kern/init.i"
-	@echo "... lab3/kern/init.s"
-	@echo "... lab3/kern/kclock.o"
-	@echo "... lab3/kern/kclock.i"
-	@echo "... lab3/kern/kclock.s"
-	@echo "... lab3/kern/kdebug.o"
-	@echo "... lab3/kern/kdebug.i"
-	@echo "... lab3/kern/kdebug.s"
-	@echo "... lab3/kern/monitor.o"
-	@echo "... lab3/kern/monitor.i"
-	@echo "... lab3/kern/monitor.s"
-	@echo "... lab3/kern/pmap.o"
-	@echo "... lab3/kern/pmap.i"
-	@echo "... lab3/kern/pmap.s"
-	@echo "... lab3/kern/printf.o"
-	@echo "... lab3/kern/printf.i"
-	@echo "... lab3/kern/printf.s"
-	@echo "... lab3/kern/syscall.o"
-	@echo "... lab3/kern/syscall.i"
-	@echo "... lab3/kern/syscall.s"
-	@echo "... lab3/kern/trap.o"
-	@echo "... lab3/kern/trap.i"
-	@echo "... lab3/kern/trap.s"
-	@echo "... lab3/lib/console.o"
-	@echo "... lab3/lib/console.i"
-	@echo "... lab3/lib/console.s"
-	@echo "... lab3/lib/exit.o"
-	@echo "... lab3/lib/exit.i"
-	@echo "... lab3/lib/exit.s"
-	@echo "... lab3/lib/libmain.o"
-	@echo "... lab3/lib/libmain.i"
-	@echo "... lab3/lib/libmain.s"
-	@echo "... lab3/lib/panic.o"
-	@echo "... lab3/lib/panic.i"
-	@echo "... lab3/lib/panic.s"
-	@echo "... lab3/lib/printf.o"
-	@echo "... lab3/lib/printf.i"
-	@echo "... lab3/lib/printf.s"
-	@echo "... lab3/lib/printfmt.o"
-	@echo "... lab3/lib/printfmt.i"
-	@echo "... lab3/lib/printfmt.s"
-	@echo "... lab3/lib/readline.o"
-	@echo "... lab3/lib/readline.i"
-	@echo "... lab3/lib/readline.s"
-	@echo "... lab3/lib/string.o"
-	@echo "... lab3/lib/string.i"
-	@echo "... lab3/lib/string.s"
-	@echo "... lab3/lib/syscall.o"
-	@echo "... lab3/lib/syscall.i"
-	@echo "... lab3/lib/syscall.s"
-	@echo "... lab3/user/badsegment.o"
-	@echo "... lab3/user/badsegment.i"
-	@echo "... lab3/user/badsegment.s"
-	@echo "... lab3/user/breakpoint.o"
-	@echo "... lab3/user/breakpoint.i"
-	@echo "... lab3/user/breakpoint.s"
-	@echo "... lab3/user/buggyhello.o"
-	@echo "... lab3/user/buggyhello.i"
-	@echo "... lab3/user/buggyhello.s"
-	@echo "... lab3/user/buggyhello2.o"
-	@echo "... lab3/user/buggyhello2.i"
-	@echo "... lab3/user/buggyhello2.s"
-	@echo "... lab3/user/divzero.o"
-	@echo "... lab3/user/divzero.i"
-	@echo "... lab3/user/divzero.s"
-	@echo "... lab3/user/evilhello.o"
-	@echo "... lab3/user/evilhello.i"
-	@echo "... lab3/user/evilhello.s"
-	@echo "... lab3/user/faultread.o"
-	@echo "... lab3/user/faultread.i"
-	@echo "... lab3/user/faultread.s"
-	@echo "... lab3/user/faultreadkernel.o"
-	@echo "... lab3/user/faultreadkernel.i"
-	@echo "... lab3/user/faultreadkernel.s"
-	@echo "... lab3/user/faultwrite.o"
-	@echo "... lab3/user/faultwrite.i"
-	@echo "... lab3/user/faultwrite.s"
-	@echo "... lab3/user/faultwritekernel.o"
-	@echo "... lab3/user/faultwritekernel.i"
-	@echo "... lab3/user/faultwritekernel.s"
-	@echo "... lab3/user/hello.o"
-	@echo "... lab3/user/hello.i"
-	@echo "... lab3/user/hello.s"
-	@echo "... lab3/user/sendpage.o"
-	@echo "... lab3/user/sendpage.i"
-	@echo "... lab3/user/sendpage.s"
-	@echo "... lab3/user/softint.o"
-	@echo "... lab3/user/softint.i"
-	@echo "... lab3/user/softint.s"
-	@echo "... lab3/user/testbss.o"
-	@echo "... lab3/user/testbss.i"
-	@echo "... lab3/user/testbss.s"
-	@echo "... lab3/yyTest.o"
-	@echo "... lab3/yyTest.i"
-	@echo "... lab3/yyTest.s"
+	@echo "... JOS_4018_Fall"
+	@echo "... lab4/boot/main.o"
+	@echo "... lab4/boot/main.i"
+	@echo "... lab4/boot/main.s"
+	@echo "... lab4/fs/test.o"
+	@echo "... lab4/fs/test.i"
+	@echo "... lab4/fs/test.s"
+	@echo "... lab4/kern/console.o"
+	@echo "... lab4/kern/console.i"
+	@echo "... lab4/kern/console.s"
+	@echo "... lab4/kern/entrypgdir.o"
+	@echo "... lab4/kern/entrypgdir.i"
+	@echo "... lab4/kern/entrypgdir.s"
+	@echo "... lab4/kern/env.o"
+	@echo "... lab4/kern/env.i"
+	@echo "... lab4/kern/env.s"
+	@echo "... lab4/kern/init.o"
+	@echo "... lab4/kern/init.i"
+	@echo "... lab4/kern/init.s"
+	@echo "... lab4/kern/kclock.o"
+	@echo "... lab4/kern/kclock.i"
+	@echo "... lab4/kern/kclock.s"
+	@echo "... lab4/kern/kdebug.o"
+	@echo "... lab4/kern/kdebug.i"
+	@echo "... lab4/kern/kdebug.s"
+	@echo "... lab4/kern/monitor.o"
+	@echo "... lab4/kern/monitor.i"
+	@echo "... lab4/kern/monitor.s"
+	@echo "... lab4/kern/mpconfig.o"
+	@echo "... lab4/kern/mpconfig.i"
+	@echo "... lab4/kern/mpconfig.s"
+	@echo "... lab4/kern/picirq.o"
+	@echo "... lab4/kern/picirq.i"
+	@echo "... lab4/kern/picirq.s"
+	@echo "... lab4/kern/pmap.o"
+	@echo "... lab4/kern/pmap.i"
+	@echo "... lab4/kern/pmap.s"
+	@echo "... lab4/kern/printf.o"
+	@echo "... lab4/kern/printf.i"
+	@echo "... lab4/kern/printf.s"
+	@echo "... lab4/kern/sched.o"
+	@echo "... lab4/kern/sched.i"
+	@echo "... lab4/kern/sched.s"
+	@echo "... lab4/kern/spinlock.o"
+	@echo "... lab4/kern/spinlock.i"
+	@echo "... lab4/kern/spinlock.s"
+	@echo "... lab4/kern/syscall.o"
+	@echo "... lab4/kern/syscall.i"
+	@echo "... lab4/kern/syscall.s"
+	@echo "... lab4/kern/trap.o"
+	@echo "... lab4/kern/trap.i"
+	@echo "... lab4/kern/trap.s"
+	@echo "... lab4/lib/console.o"
+	@echo "... lab4/lib/console.i"
+	@echo "... lab4/lib/console.s"
+	@echo "... lab4/lib/exit.o"
+	@echo "... lab4/lib/exit.i"
+	@echo "... lab4/lib/exit.s"
+	@echo "... lab4/lib/fork.o"
+	@echo "... lab4/lib/fork.i"
+	@echo "... lab4/lib/fork.s"
+	@echo "... lab4/lib/ipc.o"
+	@echo "... lab4/lib/ipc.i"
+	@echo "... lab4/lib/ipc.s"
+	@echo "... lab4/lib/libmain.o"
+	@echo "... lab4/lib/libmain.i"
+	@echo "... lab4/lib/libmain.s"
+	@echo "... lab4/lib/panic.o"
+	@echo "... lab4/lib/panic.i"
+	@echo "... lab4/lib/panic.s"
+	@echo "... lab4/lib/pgfault.o"
+	@echo "... lab4/lib/pgfault.i"
+	@echo "... lab4/lib/pgfault.s"
+	@echo "... lab4/lib/printf.o"
+	@echo "... lab4/lib/printf.i"
+	@echo "... lab4/lib/printf.s"
+	@echo "... lab4/lib/printfmt.o"
+	@echo "... lab4/lib/printfmt.i"
+	@echo "... lab4/lib/printfmt.s"
+	@echo "... lab4/lib/readline.o"
+	@echo "... lab4/lib/readline.i"
+	@echo "... lab4/lib/readline.s"
+	@echo "... lab4/lib/string.o"
+	@echo "... lab4/lib/string.i"
+	@echo "... lab4/lib/string.s"
+	@echo "... lab4/lib/syscall.o"
+	@echo "... lab4/lib/syscall.i"
+	@echo "... lab4/lib/syscall.s"
+	@echo "... lab4/user/badsegment.o"
+	@echo "... lab4/user/badsegment.i"
+	@echo "... lab4/user/badsegment.s"
+	@echo "... lab4/user/breakpoint.o"
+	@echo "... lab4/user/breakpoint.i"
+	@echo "... lab4/user/breakpoint.s"
+	@echo "... lab4/user/buggyhello.o"
+	@echo "... lab4/user/buggyhello.i"
+	@echo "... lab4/user/buggyhello.s"
+	@echo "... lab4/user/buggyhello2.o"
+	@echo "... lab4/user/buggyhello2.i"
+	@echo "... lab4/user/buggyhello2.s"
+	@echo "... lab4/user/divzero.o"
+	@echo "... lab4/user/divzero.i"
+	@echo "... lab4/user/divzero.s"
+	@echo "... lab4/user/dumbfork.o"
+	@echo "... lab4/user/dumbfork.i"
+	@echo "... lab4/user/dumbfork.s"
+	@echo "... lab4/user/evilhello.o"
+	@echo "... lab4/user/evilhello.i"
+	@echo "... lab4/user/evilhello.s"
+	@echo "... lab4/user/fairness.o"
+	@echo "... lab4/user/fairness.i"
+	@echo "... lab4/user/fairness.s"
+	@echo "... lab4/user/faultalloc.o"
+	@echo "... lab4/user/faultalloc.i"
+	@echo "... lab4/user/faultalloc.s"
+	@echo "... lab4/user/faultallocbad.o"
+	@echo "... lab4/user/faultallocbad.i"
+	@echo "... lab4/user/faultallocbad.s"
+	@echo "... lab4/user/faultdie.o"
+	@echo "... lab4/user/faultdie.i"
+	@echo "... lab4/user/faultdie.s"
+	@echo "... lab4/user/faultevilhandler.o"
+	@echo "... lab4/user/faultevilhandler.i"
+	@echo "... lab4/user/faultevilhandler.s"
+	@echo "... lab4/user/faultnostack.o"
+	@echo "... lab4/user/faultnostack.i"
+	@echo "... lab4/user/faultnostack.s"
+	@echo "... lab4/user/faultread.o"
+	@echo "... lab4/user/faultread.i"
+	@echo "... lab4/user/faultread.s"
+	@echo "... lab4/user/faultreadkernel.o"
+	@echo "... lab4/user/faultreadkernel.i"
+	@echo "... lab4/user/faultreadkernel.s"
+	@echo "... lab4/user/faultwrite.o"
+	@echo "... lab4/user/faultwrite.i"
+	@echo "... lab4/user/faultwrite.s"
+	@echo "... lab4/user/faultwritekernel.o"
+	@echo "... lab4/user/faultwritekernel.i"
+	@echo "... lab4/user/faultwritekernel.s"
+	@echo "... lab4/user/forktree.o"
+	@echo "... lab4/user/forktree.i"
+	@echo "... lab4/user/forktree.s"
+	@echo "... lab4/user/hello.o"
+	@echo "... lab4/user/hello.i"
+	@echo "... lab4/user/hello.s"
+	@echo "... lab4/user/idle.o"
+	@echo "... lab4/user/idle.i"
+	@echo "... lab4/user/idle.s"
+	@echo "... lab4/user/pingpong.o"
+	@echo "... lab4/user/pingpong.i"
+	@echo "... lab4/user/pingpong.s"
+	@echo "... lab4/user/pingpongs.o"
+	@echo "... lab4/user/pingpongs.i"
+	@echo "... lab4/user/pingpongs.s"
+	@echo "... lab4/user/primes.o"
+	@echo "... lab4/user/primes.i"
+	@echo "... lab4/user/primes.s"
+	@echo "... lab4/user/sendpage.o"
+	@echo "... lab4/user/sendpage.i"
+	@echo "... lab4/user/sendpage.s"
+	@echo "... lab4/user/softint.o"
+	@echo "... lab4/user/softint.i"
+	@echo "... lab4/user/softint.s"
+	@echo "... lab4/user/spin.o"
+	@echo "... lab4/user/spin.i"
+	@echo "... lab4/user/spin.s"
+	@echo "... lab4/user/stresssched.o"
+	@echo "... lab4/user/stresssched.i"
+	@echo "... lab4/user/stresssched.s"
+	@echo "... lab4/user/testbss.o"
+	@echo "... lab4/user/testbss.i"
+	@echo "... lab4/user/testbss.s"
+	@echo "... lab4/user/yield.o"
+	@echo "... lab4/user/yield.i"
+	@echo "... lab4/user/yield.s"
 .PHONY : help
 
 
