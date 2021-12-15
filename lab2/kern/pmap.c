@@ -147,7 +147,7 @@ mem_init(void) {
 
     //////////////////////////////////////////////////////////////////////
     // Recursively insert PD in itself as a page table, to form
-    // a virtual page table at virtual address UVPT.
+    // a virtual pagbe table at virtual address UVPT.
     // (For now, you don't have understand the greater purpose of the
     // following line.)
 
@@ -177,8 +177,9 @@ mem_init(void) {
 
     check_page_free_list(1);
 
-    cprintf("\nNow check the physical page allocator (page_alloc(), page_free(), and page_init()).\n");
+    cprintf("\n************* Now check the real physical page allocator (page_alloc(), page_free(), and page_init())************\n");
     check_page_alloc();
+    cprintf("************* Now check page_insert, page_remove, &c **************\n");
     check_page();
 
     //////////////////////////////////////////////////////////////////////
@@ -309,8 +310,20 @@ page_init(void) {
 // Hint: use page2kva and memset
 struct PageInfo *
 page_alloc(int alloc_flags) {
-    // Fill this function in
-    return 0;
+    if (!page_free_list) {
+        return NULL;
+    }
+
+    struct PageInfo *allocPage = page_free_list;
+    page_free_list = page_free_list->pp_link;
+    allocPage->pp_link = NULL;
+    allocPage->pp_ref = 0;
+
+    if (alloc_flags & ALLOC_ZERO) {
+        memset(page2kva(allocPage), 0, PGSIZE);
+    }
+
+    return allocPage;
 }
 
 //
@@ -319,6 +332,12 @@ page_alloc(int alloc_flags) {
 //
 void
 page_free(struct PageInfo *pp) {
+    assert(!pp->pp_ref);
+    assert(!pp->pp_link);
+    //我觉得不用保证pages->pp_link的顺序
+    pp->pp_link = page_free_list;
+    page_free_list = pp;
+    pp = NULL;
     // Fill this function in
     // Hint: You may want to panic if pp->pp_ref is nonzero or
     // pp->pp_link is not NULL.
@@ -356,10 +375,60 @@ page_decref(struct PageInfo *pp) {
 // Hint 3: look at inc/mmu.h for useful macros that manipulate page
 // table and page directory entries.
 //
+
+//如果是UVPT呢？
+//抽出一个方法，单一职责
+//未加除present之外权限
+//虚拟地址+索引->物理地址->线性地址+索引->物理地址->线性地址->虚拟地址有点麻烦啊
+//每一个方法必须要明确，提供方可不能错
 pte_t *
 pgdir_walk(pde_t *pgdir, const void *va, int create) {
-    // Fill this function in
-    return NULL;
+    physaddr_t pgTablePaAddr;
+    //查页目录表
+    if (!(pgTablePaAddr = PTE_ADDR(pgdir[PDX(va)]))) {
+        if (!create) {
+            return NULL;
+        } else {
+            struct PageInfo *pageInfo = page_alloc(ALLOC_ZERO);
+            //判断是否还有物理内存
+            if (!pageInfo) {
+                return NULL;
+            }
+            pageInfo->pp_ref++;
+            pgTablePaAddr = page2pa(pageInfo);
+            pgdir[PDX(va)] = pgTablePaAddr | PTE_P;
+        }
+    }
+
+    //查页表
+    pte_t *pgTableVaAddr = KADDR(pgTablePaAddr);
+    physaddr_t pgTableEntryAddr;
+    if (!(pgTableEntryAddr = PTE_ADDR(pgTableVaAddr[PTX(va)]))) {
+        if (!create) {
+            return NULL;
+        } else {
+            struct PageInfo *pageInfo = page_alloc(ALLOC_ZERO);
+            //判断是否还有物理内存
+            //The relevant page table page might not exist yet.
+            // If this is true, and create == false, then pgdir_walk returns NULL.
+            // Otherwise, pgdir_walk allocates a new page table page with page_alloc.
+            //    - If the allocation fails, pgdir_walk returns NULL.
+            //    - Otherwise, the new page's reference count is incremented,
+            //	the page is cleared,
+            //	and pgdir_walk returns a pointer into the new page table page.
+            if (!pageInfo) {
+                return &pgTableVaAddr[PTX(va)];
+            }
+            //这直接就指定页了？？？是这样的吗？不合理
+            pageInfo->pp_ref++;
+            pgTableEntryAddr = page2pa(pageInfo);
+            pgTableVaAddr[PTX(va)] = pgTableEntryAddr | PTE_P;
+        }
+    }
+
+    //传错了
+//    return KADDR(pgTableEntryAddr | PGOFF(va));
+    return &pgTableVaAddr[PTX(va)];
 }
 
 //
@@ -405,7 +474,40 @@ boot_map_region(pde_t *pgdir, uintptr_t va, size_t size, physaddr_t pa, int perm
 //
 int
 page_insert(pde_t *pgdir, struct PageInfo *pp, void *va, int perm) {
-    // Fill this function in
+    //检查va处是否已经有其他映射
+    pte_t *cur = pgdir_walk(pgdir, va, false);
+    struct PageInfo *tmp = NULL;
+
+    if (cur) {
+        tmp = pa2page(PTE_ADDR(*cur));
+        if (tmp != pp) {
+            page_remove(pgdir, va);
+        }
+    }
+
+    //插入页表项
+    physaddr_t pgTablePaAddr = PTE_ADDR(pgdir[PDX(va)]);
+
+    //判断页目录项是否为空
+    if (!pgTablePaAddr) {
+        struct PageInfo *pageInfo = page_alloc(ALLOC_ZERO);
+        //判断是否有分配空间
+        if (!pageInfo) {
+            return -E_NO_MEM;
+        }
+        pageInfo->pp_ref++;
+        pgTablePaAddr = page2pa(pageInfo);
+        pgdir[PDX(va)] = pgTablePaAddr | perm | PTE_P;
+    }
+    //页表项
+    ((pte_t *) KADDR(pgTablePaAddr))[PTX(va)] = page2pa(pp) | perm | PTE_P;
+    //目录项
+    pgdir[PDX(va)] = pgTablePaAddr | perm | PTE_P;
+    if (!cur || tmp != pp) {
+        pp->pp_ref++;
+    }
+
+    //没必要在使TLB失效了吧，remove里做了
     return 0;
 }
 
@@ -422,8 +524,18 @@ page_insert(pde_t *pgdir, struct PageInfo *pp, void *va, int perm) {
 //
 struct PageInfo *
 page_lookup(pde_t *pgdir, void *va, pte_t **pte_store) {
-    // Fill this function in
-    return NULL;
+    //页目录游走
+    pte_t *cur = pgdir_walk(pgdir, va, false);
+    if (!cur) {
+        return NULL;
+    }
+
+    //存在页表项
+    if (pte_store) {
+        *pte_store = cur;
+    }
+
+    return pa2page(PTE_ADDR(*cur));
 }
 
 //
@@ -443,7 +555,15 @@ page_lookup(pde_t *pgdir, void *va, pte_t **pte_store) {
 //
 void
 page_remove(pde_t *pgdir, void *va) {
-    // Fill this function in
+    pte_t *pte;
+    struct PageInfo *pageInfo = page_lookup(pgdir, va, &pte);
+    if (!pageInfo) {
+        return;
+    }
+
+    page_decref(pageInfo);
+    memset(pte, 0, sizeof(pte_t));
+    tlb_invalidate(pgdir, va);
 }
 
 //
@@ -745,7 +865,7 @@ check_page(void) {
     assert(check_va2pa(kern_pgdir, PGSIZE) == page2pa(pp2));
     assert(pp2->pp_ref == 1);
     assert(*pgdir_walk(kern_pgdir, (void *) PGSIZE, 0) & PTE_U);
-    assert(kern_pgdir[0] & PTE_U);
+    assert(kern_pgdir[0] & PTE_U);//骗我说目录项的权限可以消极一点？？？
 
     // should be able to remap with fewer permissions
     assert(page_insert(kern_pgdir, pp2, (void *) PGSIZE, PTE_W) == 0);
@@ -805,6 +925,10 @@ check_page(void) {
     va = (void *) (PGSIZE * NPDENTRIES + PGSIZE);
     ptep = pgdir_walk(kern_pgdir, va, 1);
     ptep1 = (pte_t *) KADDR(PTE_ADDR(kern_pgdir[PDX(va)]));
+
+    cprintf("PTE_ADDR(kern_pgdir[PDX(va)]):0x%x\tkern_pgdir[PDX(va)]:0x%x\tptep:0x%x\tptep1:0x%x\tPTX(va):0x%x\n",
+            PTE_ADDR(kern_pgdir[PDX(va)]), kern_pgdir[PDX(va)], ptep, ptep1,
+            PTX(va));
     assert(ptep == ptep1 + PTX(va));
     kern_pgdir[PDX(va)] = 0;
     pp0->pp_ref = 0;
