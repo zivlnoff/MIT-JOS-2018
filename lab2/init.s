@@ -11,7 +11,8 @@
 	.text
 	.align 4
 	.stabs	"test_backtrace:F(0,1)=(0,1)",36,0,0,test_backtrace
-	.stabs	"void:t(0,1)",128,0,0,0
+	.stabs	"void:t(0,1)",
+	128,0,0,0
 	.stabs	"x:p(0,2)=r(0,2);-2147483648;2147483647;",160,0,0,8
 	.stabs	"int:t(0,2)",128,0,0,0
 	.globl	test_backtrace

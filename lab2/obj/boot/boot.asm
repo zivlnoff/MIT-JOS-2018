@@ -5,8 +5,8 @@ obj/boot/boot.out:     file format elf32-i386
 Disassembly of section .text:
 
 00007c00 <start>:
-.set CR0_PE_ON,      0x1         # protected mode enable flag
 
+//addr: 0x7c00
 .globl start
 start:
   .code16                     # Assemble for 16-bit mode
@@ -134,31 +134,30 @@ inb(int port)
 	asm volatile("inb %w1,%0" : "=a" (data) : "d" (port));
     7c6a:	ba f7 01 00 00       	mov    $0x1f7,%edx
     7c6f:	ec                   	in     (%dx),%al
+}
 
 void
-waitdisk(void)
-{
-	// wait for disk reaady
-	while ((inb(0x1F7) & 0xC0) != 0x40)
+waitdisk(void) {
+    // wait for disk reaady
+    while ((inb(0x1F7) & 0xC0) != 0x40)
     7c70:	83 e0 c0             	and    $0xffffffc0,%eax
     7c73:	3c 40                	cmp    $0x40,%al
     7c75:	75 f8                	jne    7c6f <waitdisk+0x5>
-		/* do nothing */;
+        /* do nothing */;
 }
     7c77:	c3                   	ret    
 
 00007c78 <readsect>:
 
 void
-readsect(void *dst, uint32_t offset)
-{
+readsect(void *dst, uint32_t offset) {
     7c78:	55                   	push   %ebp
     7c79:	89 e5                	mov    %esp,%ebp
     7c7b:	57                   	push   %edi
     7c7c:	50                   	push   %eax
     7c7d:	8b 4d 0c             	mov    0xc(%ebp),%ecx
-	// wait for disk to be ready
-	waitdisk();
+    // wait for disk to be ready
+    waitdisk();
     7c80:	e8 e5 ff ff ff       	call   7c6a <waitdisk>
 }
 
@@ -173,19 +172,19 @@ outb(int port, uint8_t data)
     7c92:	88 c8                	mov    %cl,%al
     7c94:	ee                   	out    %al,(%dx)
 
-	outb(0x1F2, 1);		// count = 1
-	outb(0x1F3, offset);
-	outb(0x1F4, offset >> 8);
+    outb(0x1F2, 1);        // count = 1
+    outb(0x1F3, offset);
+    outb(0x1F4, offset >> 8);
     7c95:	89 c8                	mov    %ecx,%eax
     7c97:	c1 e8 08             	shr    $0x8,%eax
     7c9a:	ba f4 01 00 00       	mov    $0x1f4,%edx
     7c9f:	ee                   	out    %al,(%dx)
-	outb(0x1F5, offset >> 16);
+    outb(0x1F5, offset >> 16);
     7ca0:	89 c8                	mov    %ecx,%eax
     7ca2:	c1 e8 10             	shr    $0x10,%eax
     7ca5:	ba f5 01 00 00       	mov    $0x1f5,%edx
     7caa:	ee                   	out    %al,(%dx)
-	outb(0x1F6, (offset >> 24) | 0xE0);
+    outb(0x1F6, (offset >> 24) | 0xE0);
     7cab:	89 c8                	mov    %ecx,%eax
     7cad:	c1 e8 18             	shr    $0x18,%eax
     7cb0:	83 c8 e0             	or     $0xffffffe0,%eax
@@ -194,10 +193,10 @@ outb(int port, uint8_t data)
     7cb9:	b0 20                	mov    $0x20,%al
     7cbb:	ba f7 01 00 00       	mov    $0x1f7,%edx
     7cc0:	ee                   	out    %al,(%dx)
-	outb(0x1F7, 0x20);	// cmd 0x20 - read sectors
+    outb(0x1F7, 0x20);    // cmd 0x20 - read sectors
 
-	// wait for disk to be ready
-	waitdisk();
+    // wait for disk to be ready
+    waitdisk();
     7cc1:	e8 a4 ff ff ff       	call   7c6a <waitdisk>
 	asm volatile("cld\n\trepne\n\tinsl"
     7cc6:	8b 7d 08             	mov    0x8(%ebp),%edi
@@ -206,8 +205,8 @@ outb(int port, uint8_t data)
     7cd3:	fc                   	cld    
     7cd4:	f2 6d                	repnz insl (%dx),%es:(%edi)
 
-	// read a sector
-	insl(0x1F0, dst, SECTSIZE/4);
+    // read a sector
+    insl(0x1F0, dst, SECTSIZE / 4);
 }
     7cd6:	5a                   	pop    %edx
     7cd7:	5f                   	pop    %edi
@@ -215,7 +214,7 @@ outb(int port, uint8_t data)
     7cd9:	c3                   	ret    
 
 00007cda <readseg>:
-{
+readseg(uint32_t pa, uint32_t count, uint32_t offset) {
     7cda:	55                   	push   %ebp
     7cdb:	89 e5                	mov    %esp,%ebp
     7cdd:	57                   	push   %edi
@@ -223,27 +222,27 @@ outb(int port, uint8_t data)
     7cdf:	53                   	push   %ebx
     7ce0:	83 ec 0c             	sub    $0xc,%esp
     7ce3:	8b 5d 08             	mov    0x8(%ebp),%ebx
-	end_pa = pa + count;
+    end_pa = pa + count;
     7ce6:	8b 75 0c             	mov    0xc(%ebp),%esi
     7ce9:	01 de                	add    %ebx,%esi
-	pa &= ~(SECTSIZE - 1);
+    pa &= ~(SECTSIZE - 1);
     7ceb:	81 e3 00 fe ff ff    	and    $0xfffffe00,%ebx
-	offset = (offset / SECTSIZE) + 1;
+    offset = (offset / SECTSIZE) + 1;
     7cf1:	8b 7d 10             	mov    0x10(%ebp),%edi
     7cf4:	c1 ef 09             	shr    $0x9,%edi
     7cf7:	47                   	inc    %edi
-	while (pa < end_pa) {
+    while (pa < end_pa) {
     7cf8:	39 f3                	cmp    %esi,%ebx
     7cfa:	73 15                	jae    7d11 <readseg+0x37>
-		readsect((uint8_t*) pa, offset);
+        readsect((uint8_t *) pa, offset);
     7cfc:	50                   	push   %eax
     7cfd:	50                   	push   %eax
     7cfe:	57                   	push   %edi
     7cff:	53                   	push   %ebx
     7d00:	e8 73 ff ff ff       	call   7c78 <readsect>
-		pa += SECTSIZE;
+        pa += SECTSIZE;
     7d05:	81 c3 00 02 00 00    	add    $0x200,%ebx
-		offset++;
+        offset++;
     7d0b:	47                   	inc    %edi
     7d0c:	83 c4 10             	add    $0x10,%esp
     7d0f:	eb e7                	jmp    7cf8 <readseg+0x1e>
@@ -256,43 +255,43 @@ outb(int port, uint8_t data)
     7d18:	c3                   	ret    
 
 00007d19 <bootmain>:
-{
+bootmain(void) {
     7d19:	55                   	push   %ebp
     7d1a:	89 e5                	mov    %esp,%ebp
     7d1c:	56                   	push   %esi
     7d1d:	53                   	push   %ebx
-	readseg((uint32_t) ELFHDR, SECTSIZE*8, 0);
+    readseg((uint32_t)ELFHDR, SECTSIZE * 8, 0);
     7d1e:	52                   	push   %edx
     7d1f:	6a 00                	push   $0x0
     7d21:	68 00 10 00 00       	push   $0x1000
     7d26:	68 00 00 01 00       	push   $0x10000
     7d2b:	e8 aa ff ff ff       	call   7cda <readseg>
-	if (ELFHDR->e_magic != ELF_MAGIC)
+    if (ELFHDR->e_magic != ELF_MAGIC)
     7d30:	83 c4 10             	add    $0x10,%esp
     7d33:	81 3d 00 00 01 00 7f 	cmpl   $0x464c457f,0x10000
     7d3a:	45 4c 46 
     7d3d:	75 38                	jne    7d77 <bootmain+0x5e>
-	ph = (struct Proghdr *) ((uint8_t *) ELFHDR + ELFHDR->e_phoff);
+    ph = (struct Proghdr *) ((uint8_t * )ELFHDR + ELFHDR->e_phoff);
     7d3f:	a1 1c 00 01 00       	mov    0x1001c,%eax
     7d44:	8d 98 00 00 01 00    	lea    0x10000(%eax),%ebx
-	eph = ph + ELFHDR->e_phnum;
+    eph = ph + ELFHDR->e_phnum;
     7d4a:	0f b7 35 2c 00 01 00 	movzwl 0x1002c,%esi
     7d51:	c1 e6 05             	shl    $0x5,%esi
     7d54:	01 de                	add    %ebx,%esi
-	for (; ph < eph; ph++)
+    for (; ph < eph; ph++)
     7d56:	39 f3                	cmp    %esi,%ebx
     7d58:	73 17                	jae    7d71 <bootmain+0x58>
-		readseg(ph->p_pa, ph->p_memsz, ph->p_offset);
+        readseg(ph->p_pa, ph->p_memsz, ph->p_offset);
     7d5a:	50                   	push   %eax
     7d5b:	ff 73 04             	push   0x4(%ebx)
     7d5e:	ff 73 14             	push   0x14(%ebx)
     7d61:	ff 73 0c             	push   0xc(%ebx)
     7d64:	e8 71 ff ff ff       	call   7cda <readseg>
-	for (; ph < eph; ph++)
+    for (; ph < eph; ph++)
     7d69:	83 c3 20             	add    $0x20,%ebx
     7d6c:	83 c4 10             	add    $0x10,%esp
     7d6f:	eb e5                	jmp    7d56 <bootmain+0x3d>
-	((void (*)(void)) (ELFHDR->e_entry))();
+    ((void (*)(void)) (ELFHDR->e_entry))();
     7d71:	ff 15 18 00 01 00    	call   *0x10018
 }
 

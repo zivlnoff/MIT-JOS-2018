@@ -44,12 +44,16 @@ add_executable(JOS_2018_Fall
         lab2/kern/entry.S
         lab2/kern/entrypgdir.c
         lab2/kern/init.c
+        lab2/kern/kclock.c
+        lab2/kern/kclock.h
         lab2/kern/kdebug.c
         lab2/kern/kdebug.h
         lab2/kern/kernel.ld
         lab2/kern/Makefrag
         lab2/kern/monitor.c
         lab2/kern/monitor.h
+        lab2/kern/pmap.c
+        lab2/kern/pmap.h
         lab2/kern/printf.c
         lab2/lib/printfmt.c
         lab2/lib/readline.c

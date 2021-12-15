@@ -6,7 +6,8 @@
 
 #include <kern/monitor.h>
 #include <kern/console.h>
-
+#include <kern/pmap.h>
+#include <kern/kclock.h>
 // Test the stack backtrace function (lab 1 only)
 void
 test_backtrace(int x) {
@@ -22,27 +23,35 @@ test_backtrace(int x) {
 //入口
 void
 i386_init(void) {
-//    extern char edata[], end[];
+    extern char edata[], end[];
 
     // Before doing anything else, complete the ELF loading process.
     // Clear the uninitialized global data (BSS) section of our program.
     // This ensures that all static/global variables start out zero.
 
     //我目前觉得不应该这么做，可能我对.bss段不太了解，哦，我对调试用的符号表也没有很熟悉
-//    memset(edata, 0, end - edata);
+    memset(edata, 0, end - edata);
 
     // Initialize the console.
     // Can't call cprintf until after we do this!
     cons_init();
 
-    cprintf("6828 decimal is %o octal!\n", 6828);
+    cprintf("\nlab1 start------------------------------------------------------------------------------------------------\n");
 
+    cprintf("6828 decimal is %o octal!\n", 6828);
     //comparable little-and big-endian
     unsigned int i = 0x00646c72;//100-d 6c-l 72-r
     cprintf("H%x Wo%s!\n", 57616, &i);//57616-e110
-
     // Test the stack backtrace function (lab 1 only)
     test_backtrace(5);
+
+    cprintf("lab1 end--------------------------------------------------------------------------------------------------\n\n");
+
+    cprintf("lab2 start------------------------------------------------------------------------------------------------\n");
+
+    mem_init();
+
+    cprintf("lab2 end--------------------------------------------------------------------------------------------------\n\n");
 
     // Drop into the kernel monitor.
     while (1)
