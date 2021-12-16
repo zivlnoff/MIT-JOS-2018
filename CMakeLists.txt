@@ -1,0 +1,90 @@
+cmake_minimum_required(VERSION 3.20)
+project(JOS_2018_Fall)
+
+set(CMAKE_CXX_STANDARD 14)
+
+include_directories(.)
+include_directories(lab2)
+include_directories(lab2/boot)
+include_directories(lab2/conf)
+include_directories(lab2/fs)
+include_directories(lab2/inc)
+include_directories(lab2/kern)
+include_directories(lab2/lib)
+include_directories(lab2/obj)
+include_directories(lab2/obj/boot)
+include_directories(lab2/obj/kern)
+include_directories(lab2/user)
+
+add_executable(JOS_2018_Fall
+        lab2/boot/boot.S
+        lab2/boot/main.c
+        lab2/boot/Makefrag
+        lab2/boot/sign.pl
+        lab2/conf/env.mk
+        lab2/conf/lab.mk
+        lab2/fs/test.c
+        lab2/fs/testshell.key
+        lab2/inc/assert.h
+        lab2/inc/COPYRIGHT
+        lab2/inc/elf.h
+        lab2/inc/error.h
+        lab2/inc/kbdreg.h
+        lab2/inc/memlayout.h
+        lab2/inc/mmu.h
+        lab2/inc/stab.h
+        lab2/inc/stdarg.h
+        lab2/inc/stdio.h
+        lab2/inc/string.h
+        lab2/inc/types.h
+        lab2/inc/x86.h
+        lab2/kern/console.c
+        lab2/kern/console.h
+        lab2/kern/COPYRIGHT
+        lab2/kern/entry.S
+        lab2/kern/entrypgdir.c
+        lab2/kern/init.c
+        lab2/kern/kclock.c
+        lab2/kern/kclock.h
+        lab2/kern/kdebug.c
+        lab2/kern/kdebug.h
+        lab2/kern/kernel.ld
+        lab2/kern/Makefrag
+        lab2/kern/monitor.c
+        lab2/kern/monitor.h
+        lab2/kern/pmap.c
+        lab2/kern/pmap.h
+        lab2/kern/printf.c
+        lab2/lib/printfmt.c
+        lab2/lib/readline.c
+        lab2/lib/string.c
+        lab2/obj/boot/boot
+        lab2/obj/boot/boot.asm
+        lab2/obj/boot/boot.o
+        lab2/obj/boot/boot.out
+        lab2/obj/boot/main.o
+        lab2/obj/kern/console.o
+        lab2/obj/kern/entry.o
+        lab2/obj/kern/entrypgdir.o
+        lab2/obj/kern/init.o
+        lab2/obj/kern/kdebug.o
+        lab2/obj/kern/kernel
+        lab2/obj/kern/kernel.asm
+        lab2/obj/kern/kernel.img
+        lab2/obj/kern/kernel.sym
+        lab2/obj/kern/monitor.o
+        lab2/obj/kern/printf.o
+        lab2/obj/kern/printfmt.o
+        lab2/obj/kern/readline.o
+        lab2/obj/kern/string.o
+        lab2/user/sendpage.c
+        lab2/CODING
+        lab2/GNUmakefile
+        lab2/grade-lab2
+        lab2/gradelib.py
+        lab2/mergedep.pl
+        lab2/yyTest
+        lab2/yyTest.c)
+
+
+# 你他妈的缓存的原因，老子搞了2小时多 你妈必死哦

@@ -1,0 +1,90 @@
+*** Now run 'make gdb'.
+***
+
+lab1 start------------------------------------------------------------------------------------------------
+6828 decimal is 15254 octal!
+He110 World!
+entering test_backtrace 5
+entering test_backtrace 4
+entering test_backtrace 3
+entering test_backtrace 2
+entering test_backtrace 1
+entering test_backtrace 0
+  ebp f0116f08  eip f010008f  args 00000000 00000000 00000000 00000000 f0116f18
+	      kern/init.c:16:  test_backtrace+79
+  ebp f0116f28  eip f0100068  args 00000000 00000001 f0116f68 00000000 f0116f18
+	      kern/init.c:16:  test_backtrace+40
+  ebp f0116f48  eip f0100068  args 00000001 00000002 f0116f88 00000000 f0116f18
+	      kern/init.c:16:  test_backtrace+40
+  ebp f0116f68  eip f0100068  args 00000002 00000003 f0116fa8 00000000 f0116f18
+	      kern/init.c:16:  test_backtrace+40
+  ebp f0116f88  eip f0100068  args 00000003 00000004 00000000 00000000 f0116f18
+	      kern/init.c:16:  test_backtrace+40
+  ebp f0116fa8  eip f0100068  args 00000004 00000005 00000000 00010074 f0116f18
+	      kern/init.c:16:  test_backtrace+40
+  ebp f0116fc8  eip f01000fd  args 00000005 0000e110 f0116fec 00000000 f0116f18
+	      kern/init.c:58:  i386_init+105
+  ebp f0116ff8  eip f010003e  args 00118021 00000000 00000000 00000000 f0116f18
+	      {standard input}:0:  <unknown>+0
+leaving test_backtrace 0
+leaving test_backtrace 1
+leaving test_backtrace 2
+leaving test_backtrace 3
+leaving test_backtrace 4
+leaving test_backtrace 5
+lab1 end--------------------------------------------------------------------------------------------------
+
+lab2 start------------------------------------------------------------------------------------------------
+Physical memory: 0x20000K available	     base = 0x280K	     extended = 0x1fd80K
+sizeof(uint16_t):0x2
+npages:0x8000	     sizeof(Struct PageInfo):0x8
+名称:kern_pgdir	     虚拟地址:0xf011a000	     页目录项:0x3c0	     物理地址:0x11a000	     物理页:0x11a
+名称:UVPT	     虚拟地址:0xef400000	     页目录项:0x3bd	     物理地址:0x11a000	     物理页:0x11a
+pages占用空间:256K
+名称:pages	     虚拟地址:0xf011b000	     页目录项:0x3c0	     物理地址:0x11b000	     物理页:0x11b
+qemu空闲物理内存:[0x1000, 0xa0000]	     [0x15b000, 0x8000000)
+初始page_free_list:0x0
+名称:page_free_list	     虚拟地址:0xf015aff8	     页目录项:0x3c0	     物理地址:0x15aff8	     物理页:0x15a
+
+************* Now Check that the pages on the page_free_list are reasonable ************
+pp:0x0	     pp1:0xf011cff8	     pp2:0xf015aff8	     *tp[1]:0xf011cff8	     *tp[0]:0x0	     tp[0]:0xf011b008	     tp[1]:0xf011d000
+first_free_page:0xf015b000
+nfree_basemem:0x9f	     nfree_extmem:0x7ea5
+物理内存占用中页数:0xbc
+check_page_free_list() succeeded!
+
+************* Now check the real physical page allocator (page_alloc(), page_free(), and page_init())************
+check_page_alloc() succeeded!
+
+************* Now check page_insert, page_remove, &c **************
+PTE_ADDR(kern_pgdir[PDX(va)]):0x3ff000	     kern_pgdir[PDX(va)]:0x3ff003	     ptep:0xf03ff004	     ptep1:0xf03ff000	     PTX(va):0x1
+check_page() succeeded!
+
+************* Now we set up virtual memory **************
+名称:UVPT	     虚拟地址:0xef400000	     页目录项:0x3bd	     物理地址:0x11a000	     物理页:0x11a
+名称:pages	     虚拟地址:0xf011b000	     页目录项:0x3c0	     物理地址:0x11b000	     物理页:0x11b
+
+************* Now we map 'pages' read-only by the user at linear address UPAGES **************
+page2pa(pages):0x0
+
+************* Now use the physical memory that 'bootstack' refers to as the kernel stack **************
+
+************* Now map all of physical memory at KERNBASE. **************
+
+************* Now check that the initial page directory has been set up correctly **************
+check_va2pa(pgdir, UPAGES + 0):0x11b000	     PADDR(pages) + 0:0x11b000
+check_kern_pgdir() succeeded!
+
+************* Now check that the pages on the page_free_list are reasonable. **************
+first_free_page:0xf015b000
+nfree_basemem:0x9f	     nfree_extmem:0x7e63
+物理内存占用中页数:0xfe
+check_page_free_list() succeeded!
+
+************* Now check page_insert, page_remove, &c, with an installed kern_pgdir **************
+check_page_installed_pgdir() succeeded!
+lab2 end--------------------------------------------------------------------------------------------------
+
+Welcome to the JOS kernel monitor!
+Type 'help' for a list of commands.
+qemu: terminating on signal 15 from pid 19298
