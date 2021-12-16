@@ -4,87 +4,122 @@ project(JOS_2018_Fall)
 set(CMAKE_CXX_STANDARD 14)
 
 include_directories(.)
-include_directories(lab2)
-include_directories(lab2/boot)
-include_directories(lab2/conf)
-include_directories(lab2/fs)
-include_directories(lab2/inc)
-include_directories(lab2/kern)
-include_directories(lab2/lib)
-include_directories(lab2/obj)
-include_directories(lab2/obj/boot)
-include_directories(lab2/obj/kern)
-include_directories(lab2/user)
+include_directories(lab3)
+include_directories(lab3/boot)
+include_directories(lab3/conf)
+include_directories(lab3/fs)
+include_directories(lab3/inc)
+include_directories(lab3/kern)
+include_directories(lab3/lib)
+include_directories(lab3/obj)
+include_directories(lab3/obj/boot)
+include_directories(lab3/obj/kern)
+include_directories(lab3/user)
 
-add_executable(JOS_2018_Fall
-        lab2/boot/boot.S
-        lab2/boot/main.c
-        lab2/boot/Makefrag
-        lab2/boot/sign.pl
-        lab2/conf/env.mk
-        lab2/conf/lab.mk
-        lab2/fs/test.c
-        lab2/fs/testshell.key
-        lab2/inc/assert.h
-        lab2/inc/COPYRIGHT
-        lab2/inc/elf.h
-        lab2/inc/error.h
-        lab2/inc/kbdreg.h
-        lab2/inc/memlayout.h
-        lab2/inc/mmu.h
-        lab2/inc/stab.h
-        lab2/inc/stdarg.h
-        lab2/inc/stdio.h
-        lab2/inc/string.h
-        lab2/inc/types.h
-        lab2/inc/x86.h
-        lab2/kern/console.c
-        lab2/kern/console.h
-        lab2/kern/COPYRIGHT
-        lab2/kern/entry.S
-        lab2/kern/entrypgdir.c
-        lab2/kern/init.c
-        lab2/kern/kclock.c
-        lab2/kern/kclock.h
-        lab2/kern/kdebug.c
-        lab2/kern/kdebug.h
-        lab2/kern/kernel.ld
-        lab2/kern/Makefrag
-        lab2/kern/monitor.c
-        lab2/kern/monitor.h
-        lab2/kern/pmap.c
-        lab2/kern/pmap.h
-        lab2/kern/printf.c
-        lab2/lib/printfmt.c
-        lab2/lib/readline.c
-        lab2/lib/string.c
-        lab2/obj/boot/boot
-        lab2/obj/boot/boot.asm
-        lab2/obj/boot/boot.o
-        lab2/obj/boot/boot.out
-        lab2/obj/boot/main.o
-        lab2/obj/kern/console.o
-        lab2/obj/kern/entry.o
-        lab2/obj/kern/entrypgdir.o
-        lab2/obj/kern/init.o
-        lab2/obj/kern/kdebug.o
-        lab2/obj/kern/kernel
-        lab2/obj/kern/kernel.asm
-        lab2/obj/kern/kernel.img
-        lab2/obj/kern/kernel.sym
-        lab2/obj/kern/monitor.o
-        lab2/obj/kern/printf.o
-        lab2/obj/kern/printfmt.o
-        lab2/obj/kern/readline.o
-        lab2/obj/kern/string.o
-        lab2/user/sendpage.c
-        lab2/CODING
-        lab2/GNUmakefile
-        lab2/grade-lab2
-        lab2/gradelib.py
-        lab2/mergedep.pl
-        lab2/yyTest
-        lab2/yyTest.c)
+add_executable(JOS_3018_Fall
+        lab3/boot/boot.S
+        lab3/boot/main.c
+        lab3/boot/Makefrag
+        lab3/boot/sign.pl
+        lab3/conf/env.mk
+        lab3/conf/lab.mk
+        lab3/fs/test.c
+        lab3/fs/testshell.key
+        lab3/inc/assert.h
+        lab3/inc/COPYRIGHT
+        lab3/inc/elf.h
+        lab3/inc/env.h
+        lab3/inc/error.h
+        lab3/inc/kbdreg.h
+        lab3/inc/lib.h
+        lab3/inc/memlayout.h
+        lab3/inc/mmu.h
+        lab3/inc/stab.h
+        lab3/inc/stdarg.h
+        lab3/inc/stdio.h
+        lab3/inc/string.h
+        lab3/inc/syscall.h
+        lab3/inc/trap.h
+        lab3/inc/types.h
+        lab3/inc/x86.h
+        lab3/kern/console.c
+        lab3/kern/console.h
+        lab3/kern/COPYRIGHT
+        lab3/kern/entry.S
+        lab3/kern/entrypgdir.c
+        lab3/kern/env.c
+        lab3/kern/env.h
+        lab3/kern/init.c
+        lab3/kern/kclock.c
+        lab3/kern/kclock.h
+        lab3/kern/kdebug.c
+        lab3/kern/kdebug.h
+        lab3/kern/kernel.ld
+        lab3/kern/Makefrag
+        lab3/kern/monitor.c
+        lab3/kern/monitor.h
+        lab3/kern/pmap.c
+        lab3/kern/pmap.h
+        lab3/kern/printf.c
+        lab3/kern/syscall.c
+        lab3/kern/syscall.h
+        lab3/kern/trap.c
+        lab3/kern/trap.h
+        lab3/kern/trapentry.S
+        lab3/lib/console.c
+        lab3/lib/entry.S
+        lab3/lib/exit.c
+        lab3/lib/libmain.c
+        lab3/lib/Makefrag
+        lab3/lib/panic.c
+        lab3/lib/printf.c
+        lab3/lib/printfmt.c
+        lab3/lib/readline.c
+        lab3/lib/string.c
+        lab3/lib/syscall.c
+        lab3/obj/boot/boot
+        lab3/obj/boot/boot.asm
+        lab3/obj/boot/boot.o
+        lab3/obj/boot/boot.out
+        lab3/obj/boot/main.o
+        lab3/obj/kern/console.o
+        lab3/obj/kern/entry.o
+        lab3/obj/kern/entrypgdir.o
+        lab3/obj/kern/init.o
+        lab3/obj/kern/kdebug.o
+        lab3/obj/kern/kernel
+        lab3/obj/kern/kernel.asm
+        lab3/obj/kern/kernel.img
+        lab3/obj/kern/kernel.sym
+        lab3/obj/kern/monitor.o
+        lab3/obj/kern/printf.o
+        lab3/obj/kern/printfmt.o
+        lab3/obj/kern/readline.o
+        lab3/obj/kern/string.o
+        lab3/user/sendpage.c
+        lab3/user/badsegment.c
+        lab3/user/breakpoint.c
+        lab3/user/buggyhello.c
+        lab3/user/buggyhello2.c
+        lab3/user/divzero.c
+        lab3/user/evilhello.c
+        lab3/user/faultread.c
+        lab3/user/faultreadkernel.c
+        lab3/user/faultwrite.c
+        lab3/user/faultwritekernel.c
+        lab3/user/hello.c
+        lab3/user/Makefrag
+        lab3/user/sendpage.c
+        lab3/user/softint.c
+        lab3/user/testbss.c
+        lab3/user/user.ld
+        lab3/CODING
+        lab3/GNUmakefile
+        lab3/grade-lab3
+        lab3/gradelib.py
+        lab3/mergedep.pl
+        lab3/yyTest
+        lab3/yyTest.c)
 
 
 # 你他妈的缓存的原因，老子搞了2小时多 你妈必死哦
