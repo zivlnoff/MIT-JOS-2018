@@ -129,6 +129,9 @@ mem_init(void) {
     uint32_t cr0;
     size_t n;
 
+    //for计数
+    uint32_t i;
+
     // Find out how much memory the machine has (npages & npages_basemem).
     i386_detect_memory();
     cprintf("sizeof(uint16_t):0x%x\n", sizeof(unsigned short));
@@ -174,16 +177,16 @@ mem_init(void) {
     // particular, we can now map memory using boot_map_region
     // or page_insert
     page_init();
-
+    cprintf("\n************* Now Check that the pages on the page_free_list are reasonable ************\n");
     check_page_free_list(1);
-
     cprintf("\n************* Now check the real physical page allocator (page_alloc(), page_free(), and page_init())************\n");
     check_page_alloc();
-    cprintf("************* Now check page_insert, page_remove, &c **************\n");
+    cprintf("\n************* Now check page_insert, page_remove, &c **************\n");
     check_page();
 
     //////////////////////////////////////////////////////////////////////
     // Now we set up virtual memory
+    cprintf("\n************* Now we set up virtual memory **************\n");
 
     //////////////////////////////////////////////////////////////////////
     // Map 'pages' read-only by the user at linear address UPAGES
@@ -192,6 +195,12 @@ mem_init(void) {
     //      (ie. perm = PTE_U | PTE_P)
     //    - pages itself -- kernel RW, user NONE
     // Your code goes here:
+    memCprintf("UVPT", UVPT, PDX(UVPT), PADDR(kern_pgdir), PADDR(kern_pgdir) >> 12);
+    memCprintf("pages", (uintptr_t) pages, PDX(pages), PADDR(pages), PADDR(pages) >> 12);
+
+    cprintf("\n************* Now we map 'pages' read-only by the user at linear address UPAGES **************\n");
+    cprintf("page2pa(pages):0x%x\n", page2pa(pages));
+    boot_map_region(kern_pgdir, UPAGES, ROUNDUP(npages * sizeof (struct PageInfo), PGSIZE) , PADDR(pages), PTE_U | PTE_P);
 
     //////////////////////////////////////////////////////////////////////
     // Use the physical memory that 'bootstack' refers to as the kernel
@@ -205,6 +214,8 @@ mem_init(void) {
     //     Permissions: kernel RW, user NONE
     // Your code goes here:
 
+    cprintf("\n************* Now use the physical memory that 'bootstack' refers to as the kernel stack **************\n");
+    boot_map_region(kern_pgdir, KSTACKTOP - KSTKSIZE, KSTKSIZE, PADDR(bootstack), PTE_P);
     //////////////////////////////////////////////////////////////////////
     // Map all of physical memory at KERNBASE.
     // Ie.  the VA range [KERNBASE, 2^32) should map to
@@ -213,8 +224,11 @@ mem_init(void) {
     // we just set up the mapping anyway.
     // Permissions: kernel RW, user NONE
     // Your code goes here:
+    cprintf("\n************* Now map all of physical memory at KERNBASE. **************\n");
+    boot_map_region(kern_pgdir, KERNBASE, 0xFFFFFFFF - KERNBASE + 1, 0, PTE_W | PTE_P);//这权限有必要？？
 
     // Check that the initial page directory has been set up correctly.
+    cprintf("\n************* Now check that the initial page directory has been set up correctly **************\n");
     check_kern_pgdir();
 
     // Switch from the minimal entry page directory to the full kern_pgdir
@@ -226,6 +240,7 @@ mem_init(void) {
     // kern_pgdir wrong.
     lcr3(PADDR(kern_pgdir));
 
+    cprintf("\n************* Now check that the pages on the page_free_list are reasonable. **************\n");
     check_page_free_list(0);
 
     // entry.S set the really important flags in cr0 (including enabling
@@ -236,6 +251,7 @@ mem_init(void) {
     lcr0(cr0);
 
     // Some more checks, only possible after kern_pgdir is installed.
+    cprintf("\n************* Now check page_insert, page_remove, &c, with an installed kern_pgdir **************\n");
     check_page_installed_pgdir();
 }
 
@@ -396,18 +412,20 @@ pgdir_walk(pde_t *pgdir, const void *va, int create) {
             }
             pageInfo->pp_ref++;
             pgTablePaAddr = page2pa(pageInfo);
-            pgdir[PDX(va)] = pgTablePaAddr | PTE_P;
+            pgdir[PDX(va)] = pgTablePaAddr | PTE_W | PTE_P;//消极权限
         }
     }
 
+    //你没有理解hints的意思哦
+
     //查页表
-    pte_t *pgTableVaAddr = KADDR(pgTablePaAddr);
-    physaddr_t pgTableEntryAddr;
-    if (!(pgTableEntryAddr = PTE_ADDR(pgTableVaAddr[PTX(va)]))) {
-        if (!create) {
-            return NULL;
-        } else {
-            struct PageInfo *pageInfo = page_alloc(ALLOC_ZERO);
+//    pte_t *pgTableVaAddr = KADDR(pgTablePaAddr);
+//    physaddr_t pgTableEntryAddr;
+//    if (!(pgTableEntryAddr = PTE_ADDR(pgTableVaAddr[PTX(va)]))) {
+//        if (!create) {
+//            return NULL;
+//        } else {
+//            struct PageInfo *pageInfo = page_alloc(ALLOC_ZERO);
             //判断是否还有物理内存
             //The relevant page table page might not exist yet.
             // If this is true, and create == false, then pgdir_walk returns NULL.
@@ -416,19 +434,20 @@ pgdir_walk(pde_t *pgdir, const void *va, int create) {
             //    - Otherwise, the new page's reference count is incremented,
             //	the page is cleared,
             //	and pgdir_walk returns a pointer into the new page table page.
-            if (!pageInfo) {
-                return &pgTableVaAddr[PTX(va)];
-            }
+//            if (!pageInfo) {
+//                return &pgTableVaAddr[PTX(va)];
+//            }
             //这直接就指定页了？？？是这样的吗？不合理
-            pageInfo->pp_ref++;
-            pgTableEntryAddr = page2pa(pageInfo);
-            pgTableVaAddr[PTX(va)] = pgTableEntryAddr | PTE_P;
-        }
-    }
+//            pageInfo->pp_ref++;
+//            pgTableEntryAddr = page2pa(pageInfo);
+//            pgTableVaAddr[PTX(va)] = pgTableEntryAddr | PTE_P;
+//        }
+//    }
 
     //传错了
 //    return KADDR(pgTableEntryAddr | PGOFF(va));
-    return &pgTableVaAddr[PTX(va)];
+//    return &pgTableVaAddr[PTX(va)];
+    return &((pte_t *)KADDR(pgTablePaAddr))[PTX(va)];
 }
 
 //
@@ -444,7 +463,11 @@ pgdir_walk(pde_t *pgdir, const void *va, int create) {
 // Hint: the TA solution uses pgdir_walk
 static void
 boot_map_region(pde_t *pgdir, uintptr_t va, size_t size, physaddr_t pa, int perm) {
-    // Fill this function in
+    size_t offset;
+    for (offset = 0; offset < size; offset += PGSIZE) {
+        pte_t *pte = pgdir_walk(pgdir, (void *)va + offset, 1);
+        *pte = (pa + offset) | perm;
+    }
 }
 
 //
@@ -746,6 +769,7 @@ check_kern_pgdir(void) {
 
     // check pages array
     n = ROUNDUP(npages * sizeof(struct PageInfo), PGSIZE);
+    cprintf("check_va2pa(pgdir, UPAGES + 0):0x%x\tPADDR(pages) + 0:0x%x\n", check_va2pa(pgdir, UPAGES + 0),PADDR(pages) + 0);
     for (i = 0; i < n; i += PGSIZE)
         assert(check_va2pa(pgdir, UPAGES + i) == PADDR(pages) + i);
 
