@@ -24,7 +24,10 @@ V = @
 #GCCPREFIX='/usr/local/bin/x86_64-elf-'
 
 # option4	i386-elf-gcc
-GCCPREFIX='/usr/local/bin/i386-elf-'
+#GCCPREFIX='/usr/local/bin/i386-elf-'
+
+# option5 linux gcc
+GCCPREFIX='/usr/bin/'
 
 # If the makefile cannot find your QEMU binary, uncomment the
 # following line and set it to the full path to QEMU.
