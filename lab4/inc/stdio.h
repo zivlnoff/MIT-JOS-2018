@@ -2,6 +2,7 @@
 #define JOS_INC_STDIO_H
 
 #include <inc/stdarg.h>
+#include "types.h"
 
 #ifndef NULL
 #define NULL	((void *) 0)
@@ -21,6 +22,7 @@ int	vsnprintf(char *str, int size, const char *fmt, va_list);
 // lib/printf.c
 int	cprintf(const char *fmt, ...);
 int	vcprintf(const char *fmt, va_list);
+int memCprintf(const char *name, uintptr_t va, uint32_t pd_item, physaddr_t pa, uint32_t map_page);
 
 // lib/fprintf.c
 int	printf(const char *fmt, ...);

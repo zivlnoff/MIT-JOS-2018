@@ -12,9 +12,24 @@ V = @
 # out the following line to use those tools (as opposed to the i386-jos-elf
 # tools that the 6.828 make system looks for by default).
 #
-# GCCPREFIX=''
+
+# option1 	xv6
+#GCCPREFIX='/usr/local/opt/riscv-gnu-toolchain/bin/riscv64-unknown-elf-'
+
+
+# option2	brew install gcc
+#GCCPREFIX='/usr/bin/'
+
+# option3	new version of i386-elf-gcc(deprecated)	error: target system not support stabs
+#GCCPREFIX='/usr/local/bin/x86_64-elf-'
+
+# option4	i386-elf-gcc
+#GCCPREFIX='/usr/local/bin/i386-elf-'
+
+# option5 linux gcc
+GCCPREFIX='/usr/bin/'
 
 # If the makefile cannot find your QEMU binary, uncomment the
 # following line and set it to the full path to QEMU.
 #
-# QEMU=
+QEMU=../../qemu/bin/qemu-system-i386

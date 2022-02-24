@@ -39,7 +39,7 @@ printnum(void (*putch)(int, void*), void *putdat,
 	 unsigned long long num, unsigned base, int width, int padc)
 {
 	// first recursively print all preceding (more significant) digits
-	if (num >= base) {
+	if ( num>= base) {
 		printnum(putch, putdat, num / base, base, width - 1, padc);
 	} else {
 		// print any needed pad characters before first digit
@@ -76,7 +76,6 @@ getint(va_list *ap, int lflag)
 	else
 		return va_arg(*ap, int);
 }
-
 
 // Main function to format and print a string.
 void printfmt(void (*putch)(int, void*), void *putdat, const char *fmt, ...);
@@ -208,10 +207,13 @@ vprintfmt(void (*putch)(int, void*), void *putdat, const char *fmt, va_list ap)
 		// (unsigned) octal
 		case 'o':
 			// Replace this with your code.
-			putch('X', putdat);
-			putch('X', putdat);
-			putch('X', putdat);
-			break;
+            num = getint(&ap, lflag);
+			if((long long) num < 0){
+                putch('-', putdat);
+                num = -(long long) num;
+            }
+            base = 8;
+			goto number;
 
 		// pointer
 		case 'p':

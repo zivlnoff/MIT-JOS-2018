@@ -1,0 +1,125 @@
+cmake_minimum_required(VERSION 3.19)
+project(JOS_2018_Fall)
+
+set(CMAKE_CXX_STANDARD 14)
+
+include_directories(.)
+include_directories(lab3)
+include_directories(lab3/boot)
+include_directories(lab3/conf)
+include_directories(lab3/fs)
+include_directories(lab3/inc)
+include_directories(lab3/kern)
+include_directories(lab3/lib)
+include_directories(lab3/obj)
+include_directories(lab3/obj/boot)
+include_directories(lab3/obj/kern)
+include_directories(lab3/user)
+
+add_executable(JOS_3018_Fall
+        lab3/boot/boot.S
+        lab3/boot/main.c
+        lab3/boot/Makefrag
+        lab3/boot/sign.pl
+        lab3/conf/env.mk
+        lab3/conf/lab.mk
+        lab3/fs/test.c
+        lab3/fs/testshell.key
+        lab3/inc/assert.h
+        lab3/inc/COPYRIGHT
+        lab3/inc/elf.h
+        lab3/inc/env.h
+        lab3/inc/error.h
+        lab3/inc/kbdreg.h
+        lab3/inc/lib.h
+        lab3/inc/memlayout.h
+        lab3/inc/mmu.h
+        lab3/inc/stab.h
+        lab3/inc/stdarg.h
+        lab3/inc/stdio.h
+        lab3/inc/string.h
+        lab3/inc/syscall.h
+        lab3/inc/trap.h
+        lab3/inc/types.h
+        lab3/inc/x86.h
+        lab3/kern/console.c
+        lab3/kern/console.h
+        lab3/kern/COPYRIGHT
+        lab3/kern/entry.S
+        lab3/kern/entrypgdir.c
+        lab3/kern/env.c
+        lab3/kern/env.h
+        lab3/kern/init.c
+        lab3/kern/kclock.c
+        lab3/kern/kclock.h
+        lab3/kern/kdebug.c
+        lab3/kern/kdebug.h
+        lab3/kern/kernel.ld
+        lab3/kern/Makefrag
+        lab3/kern/monitor.c
+        lab3/kern/monitor.h
+        lab3/kern/pmap.c
+        lab3/kern/pmap.h
+        lab3/kern/printf.c
+        lab3/kern/syscall.c
+        lab3/kern/syscall.h
+        lab3/kern/trap.c
+        lab3/kern/trap.h
+        lab3/kern/trapentry.S
+        lab3/lib/console.c
+        lab3/lib/entry.S
+        lab3/lib/exit.c
+        lab3/lib/libmain.c
+        lab3/lib/Makefrag
+        lab3/lib/panic.c
+        lab3/lib/printf.c
+        lab3/lib/printfmt.c
+        lab3/lib/readline.c
+        lab3/lib/string.c
+        lab3/lib/syscall.c
+        lab3/obj/boot/boot
+        lab3/obj/boot/boot.asm
+        lab3/obj/boot/boot.o
+        lab3/obj/boot/boot.out
+        lab3/obj/boot/main.o
+        lab3/obj/kern/console.o
+        lab3/obj/kern/entry.o
+        lab3/obj/kern/entrypgdir.o
+        lab3/obj/kern/init.o
+        lab3/obj/kern/kdebug.o
+        lab3/obj/kern/kernel
+        lab3/obj/kern/kernel.asm
+        lab3/obj/kern/kernel.img
+        lab3/obj/kern/kernel.sym
+        lab3/obj/kern/monitor.o
+        lab3/obj/kern/printf.o
+        lab3/obj/kern/printfmt.o
+        lab3/obj/kern/readline.o
+        lab3/obj/kern/string.o
+        lab3/user/sendpage.c
+        lab3/user/badsegment.c
+        lab3/user/breakpoint.c
+        lab3/user/buggyhello.c
+        lab3/user/buggyhello2.c
+        lab3/user/divzero.c
+        lab3/user/evilhello.c
+        lab3/user/faultread.c
+        lab3/user/faultreadkernel.c
+        lab3/user/faultwrite.c
+        lab3/user/faultwritekernel.c
+        lab3/user/hello.c
+        lab3/user/Makefrag
+        lab3/user/sendpage.c
+        lab3/user/softint.c
+        lab3/user/testbss.c
+        lab3/user/user.ld
+        lab3/CODING
+        lab3/GNUmakefile
+        lab3/grade-lab3
+        lab3/gradelib.py
+        lab3/mergedep.pl
+        lab3/yyTest
+        lab3/yyTest.c)
+
+
+# 你他妈的缓存的原因，老子搞了2小时多 你妈必死哦

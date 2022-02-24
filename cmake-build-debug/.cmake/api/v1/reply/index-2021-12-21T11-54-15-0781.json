@@ -1,0 +1,93 @@
+{
+	"cmake" : 
+	{
+		"generator" : 
+		{
+			"multiConfig" : false,
+			"name" : "Unix Makefiles"
+		},
+		"paths" : 
+		{
+			"cmake" : "/home/colvtzzi/clion-2021.1.3/bin/cmake/linux/bin/cmake",
+			"cpack" : "/home/colvtzzi/clion-2021.1.3/bin/cmake/linux/bin/cpack",
+			"ctest" : "/home/colvtzzi/clion-2021.1.3/bin/cmake/linux/bin/ctest",
+			"root" : "/home/colvtzzi/clion-2021.1.3/bin/cmake/linux/share/cmake-3.19"
+		},
+		"version" : 
+		{
+			"isDirty" : false,
+			"major" : 3,
+			"minor" : 19,
+			"patch" : 2,
+			"string" : "3.19.2",
+			"suffix" : ""
+		}
+	},
+	"objects" : 
+	[
+		{
+			"jsonFile" : "codemodel-v2-8b1ed878c0859020fcca.json",
+			"kind" : "codemodel",
+			"version" : 
+			{
+				"major" : 2,
+				"minor" : 2
+			}
+		},
+		{
+			"jsonFile" : "cache-v2-5f04833ddca3b9da6eb8.json",
+			"kind" : "cache",
+			"version" : 
+			{
+				"major" : 2,
+				"minor" : 0
+			}
+		},
+		{
+			"jsonFile" : "cmakeFiles-v1-9ccd893a4899bdb39f5f.json",
+			"kind" : "cmakeFiles",
+			"version" : 
+			{
+				"major" : 1,
+				"minor" : 0
+			}
+		}
+	],
+	"reply" : 
+	{
+		"cache-v2" : 
+		{
+			"jsonFile" : "cache-v2-5f04833ddca3b9da6eb8.json",
+			"kind" : "cache",
+			"version" : 
+			{
+				"major" : 2,
+				"minor" : 0
+			}
+		},
+		"cmakeFiles-v1" : 
+		{
+			"jsonFile" : "cmakeFiles-v1-9ccd893a4899bdb39f5f.json",
+			"kind" : "cmakeFiles",
+			"version" : 
+			{
+				"major" : 1,
+				"minor" : 0
+			}
+		},
+		"codemodel-v2" : 
+		{
+			"jsonFile" : "codemodel-v2-8b1ed878c0859020fcca.json",
+			"kind" : "codemodel",
+			"version" : 
+			{
+				"major" : 2,
+				"minor" : 2
+			}
+		},
+		"toolchains-v1" : 
+		{
+			"error" : "unknown query file"
+		}
+	}
+}

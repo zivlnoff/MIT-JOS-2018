@@ -22,6 +22,8 @@
  * Virtual memory map:                                Permissions
  *                                                    kernel/user
  *
+ *
+ *
  *    4 Gig -------->  +------------------------------+
  *                     |                              | RW/--
  *                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -83,12 +85,12 @@
  */
 
 
-// All physical memory mapped at this address
+// All physical memory mapped at this address   ???
 #define	KERNBASE	0xF0000000
 
 // At IOPHYSMEM (640K) there is a 384K hole for I/O.  From the kernel,
 // IOPHYSMEM can be addressed at KERNBASE + IOPHYSMEM.  The hole ends
-// at physical address EXTPHYSMEM.
+// at physical address EXTPHYSMEM.  ???
 #define IOPHYSMEM	0x0A0000
 #define EXTPHYSMEM	0x100000
 
@@ -98,6 +100,10 @@
 #define KSTKGAP		(8*PGSIZE)   		// size of a kernel stack guard
 
 // Memory-mapped IO.
+// Memory mapped I/O就是把磁盘上的file映射到内存上，
+// 当我们从内存上fetch byte时，对应的file就被读取。同
+// 样的，当我们在内存上存储字节的时候，对应的file就被写
+// 入。这就让我们不需通过read和write系统调用而去操作I/O。
 #define MMIOLIM		(KSTACKTOP - PTSIZE)
 #define MMIOBASE	(MMIOLIM - PTSIZE)
 
