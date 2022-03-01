@@ -11,6 +11,9 @@
 #include <kern/pmap.h>
 #include <kern/trap.h>
 #include <kern/monitor.h>
+#include <kern/sched.h>
+#include <kern/cpu.h>
+#include <kern/spinlock.h>
 
 struct Env *envs = NULL;        // All environments
 //struct Env *curenv = NULL;        // The current env
@@ -35,7 +38,7 @@ static struct Env *env_free_list;    // Free environment list
 // definition of gdt specifies the Descriptor Privilege Level (DPL)
 // of that descriptor: 0 for kernel and 3 for user.
 //
-struct Segdesc gdt[] =
+struct Segdesc gdt[NCPU + 5] =
         {
                 // 0x0 - unused (always faults -- for trapping NUL L far pointers)
                 SEG_NULL,
@@ -52,8 +55,9 @@ struct Segdesc gdt[] =
                 // 0x20 - user data segment
                 [GD_UD >> 3] = SEG(STA_W, 0x0, 0xffffffff, 3),
 
-                // 0x28 - tss, initialized in trap_init_percpu()
-                [GD_TSS0 >> 3] = SEG_NULL
+                // Per-CPU TSS descriptors (starting from GD_TSS0) are initialized
+                // in trap_init_percpu()
+                [GD_TSS0 >> 3] = SEG_NULL,
         };
 
 struct Pseudodesc gdt_pd = {
@@ -291,10 +295,11 @@ region_alloc(struct Env *e, void *va, size_t len) {
     uintptr_t begin = ROUNDDOWN((uintptr_t) va, PGSIZE), end = ROUNDUP((uintptr_t) va + len, PGSIZE);
     for (; begin < end; begin += PGSIZE) {
 //        if (!page_lookup(pgdir, (void *) begin, NULL)) {
-            cprintf("begin:0x%x\tend:0x%x\n", begin, end);
             //alloc_flag ??? why false??? sb fz
 //            page_insert(pgdir, page_alloc(false), (void *) begin, PTE_U | PTE_W);
-            page_insert(pgdir, page_alloc(ALLOC_ZERO), (void *) begin, PTE_U | PTE_W);
+        struct PageInfo *pp;
+        page_insert(pgdir, pp = page_alloc(ALLOC_ZERO), (void *) begin, PTE_U | PTE_W);
+        cprintf("begin:0x%x\tend:0x%x\tpp(physical addr number):0x%x\n", begin, end, page2pa(pp));
 //        }
     }
 }
@@ -494,15 +499,28 @@ env_free(struct Env *e) {
 
 //
 // Frees environment e.
+// If e was the current env, then runs a new environment (and does not return
+// to the caller).
 //
 void
-env_destroy(struct Env *e) {
+env_destroy(struct Env *e)
+{
+    // If e is currently running on other CPUs, we change its state to
+    // ENV_DYING. A zombie environment will be freed the next time
+    // it traps to the kernel.
+    if (e->env_status == ENV_RUNNING && curenv != e) {
+        e->env_status = ENV_DYING;
+        return;
+    }
+
     env_free(e);
 
-    cprintf("Destroyed the only environment - nothing more to do!\n");
-    while (1)
-        monitor(NULL);
+    if (curenv == e) {
+        curenv = NULL;
+        sched_yield();
+    }
 }
+
 
 
 //
@@ -532,7 +550,7 @@ env_pop_tf(struct Trapframe *tf) {
 //
 void
 env_run(struct Env *e) {
-    cprintf("************* Now we run a env. **************\n");
+//    cprintf("************* Now we run a env. **************\n");
     // Step 1: If this is a context switch (a new environment is running):
     //	   1. Set the current environment (if any) back to
     //	      ENV_RUNNABLE if it is ENV_RUNNING (think about
@@ -565,8 +583,10 @@ env_run(struct Env *e) {
 
     lcr3(PADDR(e->env_pgdir));
 
-    cprintf("e->env_tf.tf_cs:0x%x\n", e->env_tf.tf_cs);
+//    cprintf("e->env_tf.tf_cs:0x%x\n", e->env_tf.tf_cs);
+
+    unlock_kernel();
     env_pop_tf(&e->env_tf);
-    panic("env_run not yet implemented");
+//    panic("env_run not yet implemented");
 }
 

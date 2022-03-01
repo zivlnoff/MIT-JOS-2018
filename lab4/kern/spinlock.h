@@ -37,12 +37,14 @@ static inline void
 unlock_kernel(void)
 {
 	spin_unlock(&kernel_lock);
+    asm volatile("pause");
+
+//    cprintf("unl  ock kernel\n");
 
 	// Normally we wouldn't need to do this, but QEMU only runs
 	// one CPU at a time and has a long time-slice.  Without the
 	// pause, this CPU is likely to reacquire the lock before
 	// another CPU has even been given a chance to acquire it.
-	asm volatile("pause");
 }
 
 #endif

@@ -71,6 +71,7 @@ spin_lock(struct spinlock *lk)
 	while (xchg(&lk->locked, 1) != 0)
 		asm volatile ("pause");
 
+//    cprintf("lock kernel\n");
 	// Record info about lock acquisition for debugging.
 #ifdef DEBUG_SPINLOCK
 	lk->cpu = thiscpu;
