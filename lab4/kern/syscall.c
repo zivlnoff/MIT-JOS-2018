@@ -145,6 +145,15 @@ sys_env_set_status(envid_t envid, int status) {
 //		or the caller doesn't have permission to change envid.
 static int
 sys_env_set_pgfault_upcall(envid_t envid, void *func) {
+    struct Env *env;
+    int r;
+    if ((r = envid2env(envid, &env, true)) < 0) {
+        cprintf("sys_env_set_pgfault_upcall() envid2env error:%e", r);
+        return r;
+    }
+
+    env->env_pgfault_upcall = func;
+    return 0;
     // LAB 4: Your code here.
     panic("sys_env_set_pgfault_upcall not implemented");
 }
@@ -392,6 +401,8 @@ syscall(uint32_t syscallno, uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, 
             return sys_page_map(a1, (void *) a2, a3, (void *) a4, a5);
         case SYS_page_unmap:
             return sys_page_unmap(a1, (void *) a2);
+        case SYS_env_set_pgfault_upcall:
+            return sys_env_set_pgfault_upcall(a1, (void *) a2);
         default:
             return -E_INVAL;
     }

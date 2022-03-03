@@ -337,6 +337,3 @@ always:
 	handin git-handin tarball tarball-pref clean realclean distclean grade handin-prep handin-check
 
 .PHONY: yyTest
-
-yyTest:
-	gcc -o yyTest yyTest.c
