@@ -13,12 +13,16 @@
 //
 static void
 pgfault(struct UTrapframe *utf) {
-    void *addr = (void *) utf->utf_fault_va;
+//    cprintf("in pgfault,,, utf->utf_fault_va:0x%x\n", *((uintptr_t *)(utf)));
+
+    void *addr = (void *) (utf->utf_fault_va);
     uint32_t err = utf->utf_err;
     int r;
 
+//    cprintf("addr:0x%x\terr:%d\n", addr, err);
+
     extern volatile pte_t uvpt[];
-    if (err != FEC_WR || ((uvpt[(uintptr_t) addr / PGSIZE] & PTE_COW) != PTE_COW)) {
+    if ((err & FEC_WR) != FEC_WR || ((uvpt[(uintptr_t) addr / PGSIZE] & PTE_COW) != PTE_COW)) {
         cprintf("utf->utf_fault_va:0x%x\tutf->utf_err:%d\n", addr, err);
         panic("pgfault is not a FEC_WR or is not to a COW page");
     }
@@ -29,15 +33,16 @@ pgfault(struct UTrapframe *utf) {
     //   (see <inc/memlayout.h>).
 
     // LAB 4: Your code here.
-
     sys_page_alloc(0, (void *) PFTEMP, PTE_W | PTE_U | PTE_P);
     memmove((void *) PFTEMP, (void *) (ROUNDDOWN(addr, PGSIZE)), PGSIZE);
 
     //restore another
-    sys_page_map(0, (void *) (ROUNDDOWN(addr, PGSIZE)), 0, (void *) (ROUNDDOWN(addr, PGSIZE)), PTE_W | PTE_U | PTE_P);
+//    sys_page_map(0, (void *) (ROUNDDOWN(addr, PGSIZE)), 0, (void *) (ROUNDDOWN(addr, PGSIZE)), PTE_W | PTE_U | PTE_P);
 
     sys_page_map(0, (void *) PFTEMP, 0, (void *) (ROUNDDOWN(addr, PGSIZE)), PTE_W | PTE_U | PTE_P);
     sys_page_unmap(0, (void *) PFTEMP);
+
+    return;
     // Allocate a new page, map it at a temporary location (PFTEMP),
     // copy the data from the old page to the new page, then move the new
     // page to the old page's address.
@@ -63,6 +68,7 @@ pgfault(struct UTrapframe *utf) {
 static int
 duppage(envid_t envid, unsigned pn) {
     int r;
+//    cprintf("0x%x\n", pn);
 
     //1. Map our virtual page pn (address pn*PGSIZE) into the target envid at the same virtual address.
     if (sys_page_map(0, (void *) (pn * PGSIZE), envid, (void *) (pn * PGSIZE), PTE_COW | PTE_U | PTE_P) < 0) {
@@ -71,7 +77,11 @@ duppage(envid_t envid, unsigned pn) {
 
 
     //2. the new mapping must be created copy-on-write, and then our mapping must be marked copy-on-write as well.
-    if (sys_page_map(envid, (void *) (pn * PGSIZE), 0, (void *) (pn * PGSIZE), PTE_COW | PTE_U | PTE_P) < 0) {
+//    if (sys_page_map(envid, (void *) (pn * PGSIZE), 0, (void *) (pn * PGSIZE), PTE_COW | PTE_U | PTE_P) < 0) {
+//        panic("dupppage target map error");
+//    }
+
+    if (sys_page_map(0, (void *) (pn * PGSIZE), 0, (void *) (pn * PGSIZE), PTE_COW | PTE_U | PTE_P) < 0) {
         panic("dupppage target map error");
     }
     return 0;
@@ -97,12 +107,14 @@ duppage(envid_t envid, unsigned pn) {
 //
 envid_t
 fork(void) {
+    extern void* _pgfault_upcall(void);
     //1. The parent installs pgfault() as the C-level page fault handler, using the set_pgfault_handler() function you implemented above.
     set_pgfault_handler(pgfault);
 
     //2. The parent calls sys_exofork() to create a child environment.
     envid_t envid = sys_exofork();
 
+//    cprintf("envid:0x%x\n", envid);
     if (envid == 0) {
         //fix "thisenv" in the child process.
         thisenv = &envs[sys_getenvid()];
@@ -125,37 +137,34 @@ fork(void) {
     //   fork() also needs to handle pages that are present, but not writable or copy-on-write.
     //   LAB 4: Your code here.
 
-    int i;
     extern volatile pde_t uvpd[];
     extern volatile pte_t uvpt[];
-    cprintf("COW page resolve ....\n");
-    for (i = 0; i < UTOP / PGSIZE; i++) {
-//        cprintf("0x%x\n", i);
 
-//        cprintf("enter %d\n", i);
+    //allocate and copy a normal stack
+    sys_page_alloc(envid, (void *) (USTACKTOP - PGSIZE), PTE_P | PTE_U | PTE_W);
+    sys_page_map(envid, (void *) (USTACKTOP - PGSIZE), 0, UTEMP, PTE_W | PTE_U | PTE_P);
+    memmove(UTEMP, (void *) (USTACKTOP - PGSIZE), PGSIZE);
+    sys_page_unmap(0, (void *) UTEMP);
+
+    int i;
+
+//    cprintf("COW page resolve ....\n");
+    for (i = 0; i < (USTACKTOP - PGSIZE) / PGSIZE; i++) {
         if (uvpd[i / NPTENTRIES] == 0) {
-//            cprintf("blank uvpd: 0x%x\n", i);
             i += 1023;
             continue;
         }
 
         if ((uvpt[i] & PTE_P) == PTE_P) {
-//            if (i % NPTENTRIES == 0) {
-//                cprintf("present uvpd: 0x%x\n", i);
-//            }
-
             if (((uvpt[i] & PTE_W) == PTE_W) || ((uvpt[i] & PTE_COW) == PTE_COW)) {
                 duppage(envid, i);
             } else {
-                //lead to kernel panic because uvpt can't write....
-                sys_page_map(0, (void *) (i * PGSIZE), envid, (void *) (i * PGSIZE), PTE_SHARE | uvpt[i]);
-                //const?
-//                pages[PGNUM(uvpt[i])].pp_ref += 1;
+                sys_page_map(0, (void *) (i * PGSIZE), envid, (void *) (i * PGSIZE), PTE_SHARE | (uvpt[i] & 0x3ff));
             }
         }
     }
 
-    cprintf("allocate child ExceptionStack ....\n");
+//    cprintf("allocate child ExceptionStack ....\n");
     sys_page_alloc(envid, (void *) (UXSTACKTOP - PGSIZE), PTE_P | PTE_U | PTE_W);
     sys_page_map(envid, (void *) (UXSTACKTOP - PGSIZE), 0, UTEMP, PTE_W | PTE_U | PTE_P);
     memmove(UTEMP, (void *) (UXSTACKTOP - PGSIZE), PGSIZE);
@@ -163,10 +172,14 @@ fork(void) {
 
     //4. The parent sets the user page fault entrypoint for the child to look like its own.
 //    set_pgfault_handler(pgfault);
-    sys_env_set_pgfault_upcall(envid, pgfault);
+//    cprintf("sys_env_set_pgfault_upcall(envid, pgfault) ....\n");
+//    sys_env_set_pgfault_upcall(envid, pgfault);
+    sys_env_set_pgfault_upcall(envid, _pgfault_upcall);
 
     //5. The child is now ready to run, so the parent marks it runnable.
+//    cprintf("sys_env_set_status(envid, ENV_RUNNABLE) ....\n");
     sys_env_set_status(envid, ENV_RUNNABLE);
+
 
     return envid;
     panic("fork not implemented");

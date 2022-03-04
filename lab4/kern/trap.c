@@ -363,6 +363,7 @@ page_fault_handler(struct Trapframe *tf) {
     // Handle kernel-mode page faults.
 
     // LAB 3: Your code here.
+//    print_trapframe(tf);
     if ((tf->tf_cs & 3) == 0) {
         print_trapframe(tf);
         panic("kernel-mode exception\n");
@@ -398,12 +399,14 @@ page_fault_handler(struct Trapframe *tf) {
         uTrapframe = (struct UTrapframe *) (UXSTACKTOP - sizeof(struct UTrapframe));
     }
 
+//    cprintf("&uTrapframe->utf->esp:0x%x\n", &uTrapframe->utf_esp);
     uTrapframe->utf_esp = tf->tf_esp;
     uTrapframe->utf_eflags = tf->tf_eflags;
     uTrapframe->utf_eip = tf->tf_eip;
     uTrapframe->utf_regs = tf->tf_regs;
     uTrapframe->utf_err = tf->tf_err;
     uTrapframe->utf_fault_va = fault_va;
+//    cprintf("utf_fault_va:0x%x\tutf_err:%d\n", fault_va, tf->tf_err);
     // It is convenient for our code which returns from a page fault
     // (lib/pfentry.S) to have one word of scratch space at the top of the
     // trap-time stack; it allows us to more easily restore the eip/esp. In
@@ -427,6 +430,8 @@ page_fault_handler(struct Trapframe *tf) {
 
     tf->tf_eip = (uintptr_t) curenv->env_pgfault_upcall;
     tf->tf_esp = (uintptr_t) uTrapframe;
+
+//    cprintf("pgfault routinue eip:0x%x\tuTrapframe:0x%x\n", tf->tf_eip, uTrapframe);
 //    cprintf("uTrapframe:0x%x\tuTrapframe->utf_regs.reg_ebp:0x%x\tuTrapframe->utf_regs.reg_esp:0x%x\n", uTrapframe,
 //            uTrapframe->utf_regs.reg_ebp, uTrapframe->utf_esp);
     env_run(curenv);

@@ -28,7 +28,7 @@ static struct Env *env_free_list;    // Free environment list
 // Set up global descriptor table (GDT) with separate segments for
 // kernel mode and user mode.  Segments serve many purposes on the x86.
 // We don't use any of their memory-mapping capabilities, but we need
-// them to switch privilege levels. 
+// them to switch privilege levels.
 //
 // The kernel and user segments are identical except for the DPL.
 // To load the SS register, the CPL must equal the DPL.  Thus,
@@ -161,7 +161,7 @@ env_init_percpu(void) {
 //
 static int
 env_setup_vm(struct Env *e) {
-    cprintf("************* Now we set up a env's vm. **************\n");
+//    cprintf("************* Now we set up a env's vm. **************\n");
 
     int i;
     struct PageInfo *p = NULL;
@@ -191,10 +191,10 @@ env_setup_vm(struct Env *e) {
     p->pp_ref++;
 
     // imitate the kern_pgdir above UTOP
-    cprintf("UTOP:0x%x\te->env_pgdor:0x%x\tsizeof(pde_t):%d\n", UTOP, e->env_pgdir, sizeof(pde_t));
+//    cprintf("UTOP:0x%x\te->env_pgdor:0x%x\tsizeof(pde_t):%d\n", UTOP, e->env_pgdir, sizeof(pde_t));
     uint32_t utop_off = PDX(UTOP);
-    cprintf("UTOP:0x%x\tutop_off:0x%x\te->env_pgdir + utop_off:0x%x\tkern_pgdir + utop_off:%x\tsizeof(pde_t) * (NPDENTRIES - utop_off)):%d\n",
-            UTOP, utop_off, e->env_pgdir + utop_off, kern_pgdir + utop_off, sizeof(pde_t) * (NPDENTRIES - utop_off));
+//    cprintf("UTOP:0x%x\tutop_off:0x%x\te->env_pgdir + utop_off:0x%x\tkern_pgdir + utop_off:%x\tsizeof(pde_t) * (NPDENTRIES - utop_off)):%d\n",
+//            UTOP, utop_off, e->env_pgdir + utop_off, kern_pgdir + utop_off, sizeof(pde_t) * (NPDENTRIES - utop_off));
     memcpy(e->env_pgdir + utop_off, kern_pgdir + utop_off, sizeof(pde_t) * (NPDENTRIES - utop_off));
 
 //    lcr3(PADDR(e->env_pgdir));
@@ -204,7 +204,7 @@ env_setup_vm(struct Env *e) {
     // Permissions: kernel R, user R
     e->env_pgdir[PDX(UVPT)] = PADDR(e->env_pgdir) | PTE_P | PTE_U;
 
-    cprintf("************* Now we successfully set up a env's vm. **************\n");
+//    cprintf("************* Now we successfully set up a env's vm. **************\n");
     return 0;
 }
 
@@ -220,7 +220,7 @@ env_setup_vm(struct Env *e) {
 int
 env_alloc(struct Env **newenv_store, envid_t parent_id) {
     //why newenv_store use double-pointer
-    cprintf("************* Now we alloc a env. **************\n");
+//    cprintf("************* Now we alloc a env. **************\n");
 
     int32_t generation;
     int r;
@@ -271,7 +271,7 @@ env_alloc(struct Env **newenv_store, envid_t parent_id) {
     *newenv_store = e;
 
     //curenv??
-    cprintf("[%08x] new env %08x\n", curenv ? curenv->env_id : 0, e->env_id);
+//    cprintf("[%08x] new env %08x\n", curenv ? curenv->env_id : 0, e->env_id);
     return 0;
 }
 
@@ -461,7 +461,7 @@ env_free(struct Env *e) {
         lcr3(PADDR(kern_pgdir));
 
     // Note the environment's demise.
-    cprintf("[%08x] free env %08x\n", curenv ? curenv->env_id : 0, e->env_id);
+//    cprintf("[%08x] free env %08x\n", curenv ? curenv->env_id : 0, e->env_id);
 
     // Flush all mapped pages in the user portion of the address space
     static_assert(UTOP % PTSIZE == 0);

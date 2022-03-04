@@ -55,10 +55,10 @@ sys_env_destroy(envid_t envid) {
 
     if ((r = envid2env(envid, &e, 1)) < 0)
         return r;
-    if (e == curenv)
-        cprintf("[%08x] exiting gracefully\n", curenv->env_id);
-    else
-        cprintf("[%08x] destroying %08x\n", curenv->env_id, e->env_id);
+//    if (e == curenv)
+//        cprintf("[%08x] exiting gracefully\n", curenv->env_id);
+//    else
+//        cprintf("[%08x] destroying %08x\n", curenv->env_id, e->env_id);
     env_destroy(e);
     return 0;
 }
@@ -91,6 +91,7 @@ sys_exofork(void) {
     //why
     memcpy(&e->env_tf, &curenv->env_tf, sizeof(struct Trapframe));
     e->env_tf.tf_regs.reg_eax = 0;
+//    cprintf("return eip:0x%x\n", curenv->env_tf.tf_eip);
 
     //child return     ***not like this*** when i stay peacefully at bed, i figure it out.
 //    if (curenv == e) {
